@@ -1,0 +1,48 @@
+﻿@model WebApplication2.Models.Payment
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Payment</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.order)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.order)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.paid)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.paid)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.payer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.payer)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.method)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.method)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.note)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.note)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
