@@ -7,8 +7,9 @@ namespace WebApplication2.Models
 {
     public class ProductSize
     {
-        public string id { get; set; }
-        public string product { get; set; }
+        [Key]
+        public int id { get; set; }
+        public int product { get; set; }
         public string size { get; set; }
         public string quantity { get; set; }
 

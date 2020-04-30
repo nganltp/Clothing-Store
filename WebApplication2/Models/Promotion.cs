@@ -9,11 +9,14 @@ namespace WebApplication2.Models
 {
     public class Promotion
     {
-        public string id { get; set; }
-        public string admin { get; set; }
-        [DataType(DataType.Date)]
+        [Key]
+        public int id { get; set; }
+        public int admin { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}")]
+        [DataType(DataType.DateTime)]
         public DateTime created { get; set; }
-        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}")]
+        [DataType(DataType.DateTime)]
         public DateTime due { get; set; }
         public string by { get; set; }
         public float discount { get; set; }

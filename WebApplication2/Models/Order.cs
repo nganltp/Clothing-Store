@@ -9,10 +9,12 @@ namespace WebApplication2.Models
 {
     public class Order
     {
-        public string id { get; set; }
-        public string customer { get; set; }
-        public string promotion { get; set; }
-        [DataType(DataType.Date)]
+        [Key]
+        public int id { get; set; }
+        public int customer { get; set; }
+        public int promotion { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}")]
+        [DataType(DataType.DateTime)]
         public DateTime ordered { get; set; }
         public string address { get; set; }
         public string status { get; set; }

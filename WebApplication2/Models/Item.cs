@@ -8,11 +8,12 @@ namespace WebApplication2.Models
 {
     public class Item
     {
-        public string id { get; set; }
+        [Key]
+        public int id { get; set; }
         [Display(Name="product")]
-        public string product { get; set; }
-        public string cart { get; set; }
-        public string order { get; set; }
+        public int product { get; set; }
+        public int cart { get; set; }
+        public int order { get; set; }
         public int price { get; set; }
         public int quantity { get; set; }
     }

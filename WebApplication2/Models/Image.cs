@@ -9,11 +9,13 @@ namespace WebApplication2.Models
 {
     public class Image
     {
-        public string id { get; set; }
-        public string whose {get;set;}
+        [Key]
+        public int id { get; set; }
+        public int whose {get;set;}
         public string content { get; set; }
         public string format { get; set; }
-        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}")]
+        [DataType(DataType.DateTime)]
         public DateTime created { get; set; }
     }
 }

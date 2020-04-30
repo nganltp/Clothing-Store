@@ -9,8 +9,11 @@ namespace WebApplication2.Models
 {
     public class News
     {
+        [Key]
         public string id { get; set; }
         public string admin { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}")]
+        [DataType(DataType.DateTime)]
         public DateTime created { get; set; }
         [DataType(DataType.MultilineText)]
         public string content {get;set;}

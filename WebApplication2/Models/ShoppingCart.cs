@@ -9,11 +9,13 @@ namespace WebApplication2.Models
 {
     public class ShoppingCart
     {
-        public string id { get; set; }
-        public string customer { get; set; }
-        [DataType(DataType.Date)]
+        public int id { get; set; }
+        public int customer { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}")]
+        [DataType(DataType.DateTime)]
         public DateTime created { get; set; }
-        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}")]
+        [DataType(DataType.DateTime)]
         public DateTime discard { get; set; }
        
     }

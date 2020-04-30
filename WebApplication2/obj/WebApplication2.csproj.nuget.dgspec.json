@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ngoho\\Desktop\\Clothing-Store\\WebApplication2\\WebApplication2.csproj": {}
+    "D:\\Net\\New folder\\Clothing-Store\\WebApplication2\\WebApplication2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ngoho\\Desktop\\Clothing-Store\\WebApplication2\\WebApplication2.csproj": {
+    "D:\\Net\\New folder\\Clothing-Store\\WebApplication2\\WebApplication2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ngoho\\Desktop\\Clothing-Store\\WebApplication2\\WebApplication2.csproj",
+        "projectUniqueName": "D:\\Net\\New folder\\Clothing-Store\\WebApplication2\\WebApplication2.csproj",
         "projectName": "WebApplication2",
-        "projectPath": "C:\\Users\\ngoho\\Desktop\\Clothing-Store\\WebApplication2\\WebApplication2.csproj",
-        "packagesPath": "C:\\Users\\ngoho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ngoho\\Desktop\\Clothing-Store\\WebApplication2\\obj\\",
+        "projectPath": "D:\\Net\\New folder\\Clothing-Store\\WebApplication2\\WebApplication2.csproj",
+        "packagesPath": "C:\\Users\\Razer\\.nuget\\packages\\",
+        "outputPath": "D:\\Net\\New folder\\Clothing-Store\\WebApplication2\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ngoho\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Razer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net461"
@@ -91,4 +86,9 @@
       },
       "runtimes": {
         "win7-x86": {
-        
+          "#import": []
+        }
+      }
+    }
+  }
+}

@@ -9,7 +9,8 @@ namespace WebApplication2.Models
 {
     public class Product
     {
-        public string id { get; set; }
+        [Key]
+        public int id { get; set; }
         public string name { get; set; }
         public string supplier { get; set; }
         public string summary { get; set; }

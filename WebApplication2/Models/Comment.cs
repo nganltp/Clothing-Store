@@ -9,13 +9,15 @@ namespace WebApplication2.Models
 {
     public class Comment
     {
-        public string id { get; set; }
-        public string account { get; set; }
-        public string product { get; set; }
+        [Key]
+        public int id { get; set; }
+        public int account { get; set; }
+        public int product { get; set; }
         public int stars { get; set; }
         public string title { get; set; }
         public string content { get; set; }
-        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}")]
+        [DataType(DataType.DateTime)]
         public DateTime created { get; set; }
     }
 }
