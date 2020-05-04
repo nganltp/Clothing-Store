@@ -24,13 +24,7 @@
 
 
   <ItemGroup>
-    <Folder Include="Controllers\Helpers\" />
-    <Folder Include="Controllers\ViewModels\Admin\" />
-    <Folder Include="Controllers\ViewModels\User\" />
     <Folder Include="Migrations\" />
-    <Folder Include="Models\Helpers\" />
-    <Folder Include="Models\ViewModels\Admin\" />
-    <Folder Include="Models\ViewModels\User\" />
   </ItemGroup>
 
 </Project>
