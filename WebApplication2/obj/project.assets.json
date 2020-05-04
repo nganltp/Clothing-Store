@@ -9346,12 +9346,11 @@
       ]
     },
     "System.Text.Encoding.CodePages/4.3.0": {
-      "sha512": "IRiEFUa5b/Gs5Egg8oqBVoywhtOeaO2KOx3j0RfcYY/raxqBuEK7NXRDgOwtYM8qbi+7S4RPXUbNt+ZxyY0/NQ==",
+      "sha512": "6ENnyNU7cdmUVYblQ9GzLuJlLs9HWyoSInm+JZyCBHFUTaSQZolLIdGSZWGw5VOhjbFop+u/pU0AbKiHQKheqw==",
       "type": "package",
       "path": "system.text.encoding.codepages/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10038,20 +10037,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Razer\\.nuget\\packages\\": {}
+    "C:\\Users\\ngoho\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Net\\New folder\\Clothing-Store\\WebApplication2\\WebApplication2.csproj",
+      "projectUniqueName": "C:\\Users\\ngoho\\Desktop\\Clothing-Store\\WebApplication2\\WebApplication2.csproj",
       "projectName": "WebApplication2",
-      "projectPath": "D:\\Net\\New folder\\Clothing-Store\\WebApplication2\\WebApplication2.csproj",
-      "packagesPath": "C:\\Users\\Razer\\.nuget\\packages\\",
-      "outputPath": "D:\\Net\\New folder\\Clothing-Store\\WebApplication2\\obj\\",
+      "projectPath": "C:\\Users\\ngoho\\Desktop\\Clothing-Store\\WebApplication2\\WebApplication2.csproj",
+      "packagesPath": "C:\\Users\\ngoho\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ngoho\\Desktop\\Clothing-Store\\WebApplication2\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Razer\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\ngoho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net461"

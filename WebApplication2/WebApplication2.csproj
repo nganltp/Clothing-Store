@@ -22,4 +22,18 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="Controllers\Helpers\" />
+    <Folder Include="Controllers\ViewModels\Admin\" />
+    <Folder Include="Controllers\ViewModels\User\" />
+    <Folder Include="Migrations\" />
+    <Folder Include="Models\Helpers\" />
+    <Folder Include="Models\ViewModels\Admin\" />
+    <Folder Include="Models\ViewModels\User\" />
+    <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Helpers\" />
+    <Folder Include="Views\User\" />
+  </ItemGroup>
+
 </Project>
