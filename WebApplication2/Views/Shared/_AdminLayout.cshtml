@@ -1,0 +1,11 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+    <div class="navbar-col">
+        @await Component.InvokeAsync("SideBar")
+    </div>
+    <div class="content-col">
+        @RenderBody()
+    </div>
+</body>
+</html>

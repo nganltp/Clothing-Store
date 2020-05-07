@@ -58,6 +58,7 @@ namespace WebApplication2.Controllers.DomainModels
         {
             if (ModelState.IsValid)
             {
+                
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

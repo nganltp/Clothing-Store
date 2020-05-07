@@ -1,0 +1,193 @@
+﻿@model WebApplication2.Models.ViewModels.Admin.Entities.AProducts
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>Products</h1>
+<h1>@ViewBag.pi</h1>
+<h1>@ViewBag.ps</h1>
+<h1>@ViewBag.name</h1>
+<h1>@ViewBag.price</h1>
+<h1>@ViewBag.sup</h1>
+<h1>@ViewBag.cat</h1>
+<h1>@ViewBag.isCreation</h1>
+<h1>@ViewBag.pName</h1>
+<h1>Id @ViewBag.Id</h1>
+<h1>End ViewBag</h1>
+<h2>List</h2>
+<table class="table">
+    <thead>
+        <div class="form-actions no-color">
+            <form asp-action="Products" method="get">
+                <div class="form-actions no-color">
+                    <p>
+                        Find by name: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+                        <input type="submit" value="Search" class="btn btn-default" /> |
+                        <a asp-action="Products">Back to Full List</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+        <tr>
+            <th>
+                <a asp-action="Products" asp-route-sortOrder="name">
+                    @Html.DisplayNameFor(model => model.choosenProduct.name)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Products" asp-route-sortOrder="sup">
+                    @Html.DisplayNameFor(model => model.choosenProduct.supplier)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.choosenProduct.summary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.choosenProduct.description)
+            </th>
+            <th>
+                <a asp-action="Products" asp-route-sortOrder="price">
+                    @Html.DisplayNameFor(model => model.choosenProduct.price)
+                </a>
+                @Html.DisplayNameFor(model => model.choosenProduct.price)
+            </th>
+            <th>
+                <a asp-action="Products" asp-route-sortOrder="cat">
+                    @Html.DisplayNameFor(model => model.choosenProduct.category)
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.products)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.supplier)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.summary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.category)
+                </td>
+                <td>
+                    @{
+                        var parms = new Dictionary<string, string>
+                                                                        {
+                            { "id", item.id.ToString() },
+                            {"func", "details" }
+                        };
+                    }
+                    <a asp-action="Products" asp-all-route-data="parms">Detail</a> |
+                    <a asp-action="Products" asp-route-func="delete" asp-route-id="@item.id">Delete</a>
+                    <a asp-action="Products" asp-route-func="edit" asp-route-id="@item.id">Edit</a>
+                    @* <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                    *@
+                </td>
+            </tr>
+                        }
+    </tbody>
+</table>
+@for (int i = 1; i <= ViewBag.totalPages; i++)
+{
+    <a asp-action="Products" asp-route-pagId="@i">@i</a>
+}
+<div>Create</div>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Products" asp-route-action="@ViewBag.isCreation" method="post">
+            <input type="hidden" asp-for="editedProduct.id" />
+
+                <label asp-for="editedProduct.name" class="control-label"></label>
+                <input asp-for="editedProduct.name" class="form-control" type="text"/>
+                <span asp-validation-for="editedProduct.name" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="editedProduct.supplier" class="control-label"></label>
+                <input asp-for="editedProduct.supplier" class="form-control" />
+                <span asp-validation-for="editedProduct.supplier" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="editedProduct.summary" class="control-label"></label>
+                <input asp-for="editedProduct.summary" class="form-control" />
+                <span asp-validation-for="editedProduct.summary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="editedProduct.description" class="control-label"></label>
+                <textarea asp-for="editedProduct.description" class="form-control"></textarea>
+                <span asp-validation-for="editedProduct.description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="editedProduct.price" class="control-label"></label>
+                <input asp-for="editedProduct.price" class="form-control" />
+                <span asp-validation-for="editedProduct.price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="editedProduct.category" class="control-label"></label>
+                <input asp-for="editedProduct.category" class="form-control" />
+                <span asp-validation-for="editedProduct.category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="@ViewBag.isCreation" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+
+<div class="product-details">
+    <h4>Details</h4>
+    @if (Model.choosenProduct != null)
+    {
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.choosenProduct.name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.choosenProduct.name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.choosenProduct.supplier)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.choosenProduct.supplier)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.choosenProduct.summary)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.choosenProduct.summary)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.choosenProduct.description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.choosenProduct.description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.choosenProduct.price)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.choosenProduct.price)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.choosenProduct.category)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.choosenProduct.category)
+            </dd>
+        </dl>
+    }
+
+</div>

@@ -1298,3 +1298,15 @@ C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Vie
 C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\ModelViews\ShoppingCarts\Details.cshtml.g.cs
 C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\ModelViews\ShoppingCarts\Edit.cshtml.g.cs
 C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\ModelViews\ShoppingCarts\Index.cshtml.g.cs
+C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\Admin\Products.cshtml.g.cs
+C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\Admin\View.cshtml.g.cs
+C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\Admin\_ViewStart.cshtml.g.cs
+C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\Helpers\View.cshtml.g.cs
+C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\Shared\Components\SideBar\Default.cshtml.g.cs
+C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\Shared\_AdminLayout.cshtml.g.cs
+C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\User\View.cshtml.g.cs
+C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\AProducts\List.cshtml.g.cs
+C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\AProducts\Create.cshtml.g.cs
+C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\AProducts\Details.cshtml.g.cs
+C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\Admin\Details.cshtml.g.cs
+C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\Products\Create.cshtml.g.cs
