@@ -1,0 +1,145 @@
+﻿@model WebApplication2.Models.ViewModels.Admin.APromotion
+@{
+    ViewData["Title"] = "Admins";
+}
+
+<h1>Admins</h1>
+
+<table>
+    <thead>
+        <div>
+            <form asp-action="Promotion" method="get">
+                <div>
+                    <p>
+                        Find by name:   <input type="text" name="search" />
+                        <input type="submit" value="Search" />
+                        <a asp-action="Promotion" asp-route-aId="0">Back to Full List</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+        <tr>
+            <th>
+                @Html.DisplayName("Id")
+            </th>
+            <th>
+                @Html.DisplayName("Admin")
+            </th>
+            <th>
+                @Html.DisplayName("Created")
+            </th>
+            <th>
+                @Html.DisplayName("Due")
+            </th>
+            <th>
+                @Html.DisplayName("By")
+            </th>
+            <th>
+                @Html.DisplayName("Discount")
+            </th>
+            <th>
+                @Html.DisplayName("Description")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ad in Model.promotions)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => ad.id)</td>
+
+            <td>@Html.DisplayFor(modelItem => ad.admin)</td>
+
+            <td>@Html.DisplayFor(modelItem => ad.created)</td>
+
+            <td>@Html.DisplayFor(modelItem => ad.due)</td>
+
+            <td>@Html.DisplayFor(modelItem => ad.by)</td>
+
+            <td>@Html.DisplayFor(modelItem => ad.discount)</td>
+
+            <td>@Html.DisplayFor(modelItem => ad.description)</td>
+        </tr>
+        <td>
+            <a asp-action="Promotion" asp-route-func="details" asp-route-id="@ad.id">Details</a>
+            <a asp-action="Promotion" asp-route-func="edit" asp-route-id="@ad.id">Edit</a>
+
+        </td>
+    }
+        </tbody>
+    </table>
+    @for (int i = 1; i <= ViewBag.totalPage; i++)
+    {
+        <a asp-action="Promotion" asp-route-PageId="@i">@i</a>
+    }
+    <a asp-action="Promotion" asp-route-func="create">Create</a>
+    <h1>Admin Details</h1>
+    <div>
+        @if (Model.choosenPromotion.id != 0)
+        {
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => Model.choosenPromotion.id)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => Model.choosenPromotion.id)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => Model.choosenPromotion.admin)
+                </dt>
+                <dt class="col-sm-2">
+                    @Html.DisplayFor(model => Model.choosenPromotion.admin)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayNameFor(model => Model.choosenPromotion.created)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayFor(model => Model.choosenPromotion.created)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayNameFor(model => Model.choosenPromotion.due)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayFor(model => Model.choosenPromotion.due)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayNameFor(model => Model.choosenPromotion.by)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayFor(model => Model.choosenPromotion.by)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayNameFor(model => Model.choosenPromotion.discount)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayFor(model => Model.choosenPromotion.discount)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayNameFor(model => Model.choosenPromotion.description)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayFor(model => model.choosenPromotion.description)
+                </dt>
+            </dl>
+        }
+    </div>
+    @if (ViewBag.isCreation == "Create" || ViewBag.isCreation == "Edit")
+    {
+        @using (Html.BeginForm("Promotion"))
+        {
+            <input type="hidden" asp-for="editedPromotion.id" />
+            @Html.LabelFor(m => m.editedPromotion.admin)
+            @Html.TextBoxFor(m => m.editedPromotion.admin)
+            @Html.LabelFor(m => m.editedPromotion.created)
+            @Html.TextBoxFor(m => m.editedPromotion.created)
+            @Html.LabelFor(m => m.editedPromotion.due)
+            @Html.TextBoxFor(m => m.editedPromotion.due)
+            @Html.LabelFor(m => m.editedPromotion.by)
+            @Html.TextBoxFor(m => m.editedPromotion.by)
+            @Html.LabelFor(m => m.editedPromotion.discount)
+            @Html.TextBoxFor(m => m.editedPromotion.discount)
+            @Html.LabelFor(m => m.editedPromotion.description)
+            @Html.TextBoxFor(m => m.editedPromotion.description)
+            <input type="submit" value="@ViewBag.isCreation" />
+        }
+    }

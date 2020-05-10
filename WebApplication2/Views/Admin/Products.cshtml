@@ -2,26 +2,17 @@
 @{
     ViewData["Title"] = "Products";
 }
-
+<h1>@ViewBag.Id</h1>
 <h1>Products</h1>
-<h1>@ViewBag.pi</h1>
-<h1>@ViewBag.ps</h1>
-<h1>@ViewBag.name</h1>
-<h1>@ViewBag.price</h1>
-<h1>@ViewBag.sup</h1>
-<h1>@ViewBag.cat</h1>
-<h1>@ViewBag.isCreation</h1>
-<h1>@ViewBag.pName</h1>
-<h1>Id @ViewBag.Id</h1>
-<h1>End ViewBag</h1>
-<h2>List</h2>
+
+<h1>List</h1>
 <table class="table">
     <thead>
         <div class="form-actions no-color">
             <form asp-action="Products" method="get">
                 <div class="form-actions no-color">
                     <p>
-                        Find by name: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+                        Find by name: <input type="text" name="SearchString" />
                         <input type="submit" value="Search" class="btn btn-default" /> |
                         <a asp-action="Products">Back to Full List</a>
                     </p>
@@ -84,7 +75,7 @@
                 <td>
                     @{
                         var parms = new Dictionary<string, string>
-                                                                        {
+                                                                                                                                                                {
                             { "id", item.id.ToString() },
                             {"func", "details" }
                         };
@@ -97,55 +88,36 @@
                     *@
                 </td>
             </tr>
-                        }
+        }
     </tbody>
 </table>
 @for (int i = 1; i <= ViewBag.totalPages; i++)
 {
-    <a asp-action="Products" asp-route-pagId="@i">@i</a>
+    <a asp-action="Products" asp-route-pageId="@i">@i</a>
 }
-<div>Create</div>
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Products" asp-route-action="@ViewBag.isCreation" method="post">
-            <input type="hidden" asp-for="editedProduct.id" />
 
-                <label asp-for="editedProduct.name" class="control-label"></label>
-                <input asp-for="editedProduct.name" class="form-control" type="text"/>
-                <span asp-validation-for="editedProduct.name" class="text-danger"></span>
-            <div class="form-group">
-                <label asp-for="editedProduct.supplier" class="control-label"></label>
-                <input asp-for="editedProduct.supplier" class="form-control" />
-                <span asp-validation-for="editedProduct.supplier" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="editedProduct.summary" class="control-label"></label>
-                <input asp-for="editedProduct.summary" class="form-control" />
-                <span asp-validation-for="editedProduct.summary" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="editedProduct.description" class="control-label"></label>
-                <textarea asp-for="editedProduct.description" class="form-control"></textarea>
-                <span asp-validation-for="editedProduct.description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="editedProduct.price" class="control-label"></label>
-                <input asp-for="editedProduct.price" class="form-control" />
-                <span asp-validation-for="editedProduct.price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="editedProduct.category" class="control-label"></label>
-                <input asp-for="editedProduct.category" class="form-control" />
-                <span asp-validation-for="editedProduct.category" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="@ViewBag.isCreation" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-<hr />
+<hr/>
+<h1>Create</h1>
+@using (Html.BeginForm("Products"))
+{
+    <input type="hidden" asp-for="editedProduct.id" />
+    @Html.LabelFor(m => m.editedProduct.name)
+    @Html.TextBoxFor(m => m.editedProduct.name)
+    @Html.LabelFor(m => m.editedProduct.description)
+    @Html.TextBoxFor(m => m.editedProduct.description)
+    @Html.LabelFor(m => m.editedProduct.supplier)
+    @Html.TextBoxFor(m => m.editedProduct.supplier)
+    @Html.LabelFor(m => m.editedProduct.category)
+    @Html.TextBoxFor(m => m.editedProduct.category)
+    @Html.LabelFor(m => m.editedProduct.summary)
+    @Html.TextBoxFor(m => m.editedProduct.summary)
+    @Html.LabelFor(m => m.editedProduct.price)
+    @Html.TextBoxFor(m => m.editedProduct.price)
+    <input type="submit" value="@ViewBag.isCreation" />
+}
 
+<hr/>
+<h1>Details</h1>
 <div class="product-details">
     <h4>Details</h4>
     @if (Model.choosenProduct != null)
@@ -189,5 +161,73 @@
             </dd>
         </dl>
     }
-
 </div>
+<h1>Size</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Product")
+            </th>
+            <th>
+                <a asp-action="Products" asp-route-sortOrder="size" asp-route-size="true">
+                    @Html.DisplayName("Size")
+                </a>
+
+            </th>
+            <th>
+                <a asp-action="Products" asp-route-sortOrder="quantity" asp-route-size="true">
+                    @Html.DisplayName("Quantity")
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.choosenProduct != null)
+        {
+            <tr>
+                @using (Html.BeginForm("Products"))
+                {
+                    <input type="hidden" value="@Model.choosenProduct.id" asp-for="editedSize.product"/>
+                    @Html.LabelFor(m => m.editedSize.product)
+                    <div>@Model.choosenProduct.id</div>
+                    @Html.LabelFor(m => m.editedSize.size)
+                    @Html.TextBoxFor(m => m.editedSize.size)
+                    @Html.LabelFor(m => m.editedSize.quantity)
+                    @Html.TextBoxFor(m => m.editedSize.quantity)
+                    <input type="submit" value="Add Size" />
+                }
+            </tr>
+            @if (Model.sizes != null)
+            {
+                @foreach (var item in Model.sizes)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.product)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.size)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.quantity)
+                        </td>
+                        <td>
+                            <form asp-action="Products" method="get">
+                                <p>
+                                    <input type="submit" value="Change"/input>
+                                    <input type="hidden" name="func" value="details" />
+                                    <input type="hidden" name="sizeId" value="@item.id"/>
+                                    <input type="text" name="sizeAlter" />
+                                </p>
+                            </form>
+                        </td>
+                    </tr>
+                }
+
+            }
+        }
+
+    </tbody>
+</table>

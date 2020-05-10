@@ -1232,7 +1232,6 @@ C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\WebApplic
 C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\WebApplication2.RazorTargetAssemblyInfo.cs
 C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\WebApplication2.Views.pdb
 C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\WebApplication2.csproj.CopyComplete
-C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\WebApplication2.csprojAssemblyReference.cache
 C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\ModelViews\Addresses\Create.cshtml.g.cs
 C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\ModelViews\Addresses\Delete.cshtml.g.cs
 C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\ModelViews\Addresses\Details.cshtml.g.cs
@@ -1310,3 +1309,9 @@ C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Vie
 C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\AProducts\Details.cshtml.g.cs
 C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\Admin\Details.cshtml.g.cs
 C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\Products\Create.cshtml.g.cs
+C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\Admin\Users.cshtml.g.cs
+C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\Admin\Orders.cshtml.g.cs
+C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\Admin\Admins.cshtml.g.cs
+C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\Admin\Promotion.cshtml.g.cs
+C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\WebApplication2.csprojAssemblyReference.cache
+C:\Users\ngoho\Desktop\Clothing-Store\WebApplication2\obj\Debug\net461\Razor\Views\Admin\News.cshtml.g.cs

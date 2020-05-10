@@ -9,7 +9,10 @@ namespace WebApplication2.Controllers.ViewModels.Admin
     [ViewComponent(Name ="SideBar")]
     public class SideBarViewComponent : ViewComponent
     {
-        private IEnumerable<string> options = new string[] { "Products" };
+        private IEnumerable<string> options = new string[] {"Products",
+                                                            "Users", 
+                                                            "Orders",
+                                                            "Admins"};
         //public IActionResult Index()
         //{
         //    return View();

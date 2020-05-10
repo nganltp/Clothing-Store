@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace WebApplication2.Models.ViewModels.Admin
 {
-    public class AdminHomeViewModel
+    public class ANews
     {
-        private IEnumerable<Product> products;
-
-
+        public IEnumerable<News> news { get; set; }
+        public News choosenNews { get; set; }
+        public News editedNews { get; set; }
     }
 }

@@ -1,0 +1,180 @@
+﻿@model WebApplication2.Models.ViewModels.Admin.AAdmins
+@{
+    ViewData["Title"] = "Admins";
+}
+
+<h1>Admins</h1>
+
+<table>
+    <thead>
+        <div>
+            <form asp-action="Admins" method="get">
+                <div>
+                    <p>
+                        Find by name:   <input type="text" name="aSrch" />
+                        <input type="submit" value="Search" />
+                        <a asp-action="Admins" asp-route-aId="0">Back to Full List</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+        <tr>
+            <th>
+                <a asp-action="Admins" asp-route-sortOrder="id">
+                    @Html.DisplayName("Id")
+                </a>
+            </th>
+            <th>
+                <a asp-action="Admins" asp-route-sortOrder="name">
+                    @Html.DisplayName("Name")
+                </a>
+            </th>
+            <th>
+                <a asp-action="Admins" asp-route-sortOrder="email">
+                    @Html.DisplayName("Email")
+                </a>
+            </th>
+            <th>
+                <a asp-action="Admins" asp-route-sortOrder="open">
+                    @Html.DisplayName("Created")
+                </a>
+            </th>
+            <th>
+                <a asp-action="Admins" asp-route-sortOrder="closed">
+                    @Html.DisplayName("Closed")
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ad in Model.admins)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => ad.id)</td>
+        
+            <td>@Html.DisplayFor(modelItem => ad.username)</td>
+       
+            <td>@Html.DisplayFor(modelItem => ad.email)</td>
+       
+            <td>@Html.DisplayFor(modelItem => ad.created)</td>
+        
+            <td>@Html.DisplayFor(modelItem => ad.closed)</td>
+        </tr>
+    <td>
+        @if (ad.closed == ad.created)
+            {<a asp-action="Admins" asp-route-func="close" asp-route-id="@ad.id">Close</a>}
+        @if (ad.closed != ad.created)
+            {<a asp-action="Admins" asp-route-func="open" asp-route-id="@ad.id">Open</a>}
+        <a asp-action="Admins" asp-route-func="details" asp-route-id="@ad.id">Details</a>
+        <a asp-action="Admins" asp-route-func="edit" asp-route-id="@ad.id">Edit</a>
+
+    </td>
+    }
+        </tbody>
+    </table>
+    @for (int i = 1; i <= ViewBag.totalPage; i++)
+    {
+    <a asp-action="Admins" asp-route-pageId="@i">@i</a>
+    }
+    <a asp-action="Admins" asp-route-func="create">Create</a>
+    <h1>Admin Details</h1>
+    <div>
+        @if (Model.choosenAdmin.id != 0)
+        {
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.choosenAdmin.id)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.choosenAdmin.id)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.choosenAdmin.username)
+            </dt>
+            <dt class="col-sm-2">
+                @Html.DisplayFor(model => Model.choosenAdmin.username)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayNameFor(model => Model.choosenAdmin.email)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayFor(model => Model.choosenAdmin.email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayNameFor(model => Model.choosenAdmin.fullName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayFor(model => Model.choosenAdmin.fullName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayNameFor(model => Model.choosenAdmin.birth)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayFor(model => Model.choosenAdmin.birth)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayNameFor(model => Model.choosenAdmin.password)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayFor(model => Model.choosenAdmin.password)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayNameFor(model => Model.choosenAdmin.type)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayFor(model => model.choosenAdmin.type)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayNameFor(model => Model.choosenAdmin.role)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayFor(model => model.choosenAdmin.role)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayNameFor(model => Model.choosenAdmin.address)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayFor(model => model.choosenAdmin.address)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayNameFor(model => Model.choosenAdmin.created)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayFor(model => model.choosenAdmin.created)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayNameFor(model => Model.choosenAdmin.closed)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayFor(model => model.choosenAdmin.closed)
+            </dt>
+        </dl>
+        }
+    </div>
+    @if(ViewBag.isCreation=="Create" || ViewBag.isCreation == "Edit"){
+    @using (Html.BeginForm("Admins"))
+{
+    <input type="hidden" asp-for="editedAdmin.id" />
+    @Html.LabelFor(m => m.editedAdmin.username)
+    @Html.TextBoxFor(m => m.editedAdmin.username)
+    @Html.LabelFor(m => m.editedAdmin.email)
+    @Html.TextBoxFor(m => m.editedAdmin.email)
+    @Html.LabelFor(m => m.editedAdmin.fullName)
+    @Html.TextBoxFor(m => m.editedAdmin.fullName)
+    @Html.LabelFor(m => m.editedAdmin.password)
+    @Html.TextBoxFor(m => m.editedAdmin.password)
+    @Html.LabelFor(m => m.editedAdmin.birth)
+    @Html.TextBoxFor(m => m.editedAdmin.birth)
+    @Html.LabelFor(m => m.editedAdmin.type)
+    @Html.TextBoxFor(m => m.editedAdmin.type)
+    @Html.LabelFor(m => m.editedAdmin.address)
+    @Html.TextBoxFor(m => m.editedAdmin.address)
+    @Html.LabelFor(m => m.editedAdmin.role)
+    @Html.TextBoxFor(m => m.editedAdmin.role)
+    @Html.LabelFor(m => m.editedAdmin.created)
+    @Html.TextBoxFor(m => m.editedAdmin.created)
+    @Html.LabelFor(m => m.editedAdmin.closed)
+    @Html.TextBoxFor(m => m.editedAdmin.closed)
+    <input type="submit" value="@ViewBag.isCreation" />
+}
+}
