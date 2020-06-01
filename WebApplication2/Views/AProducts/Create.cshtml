@@ -1,0 +1,42 @@
+﻿@model WebApplication2.Models.ViewModels.Admin.Entities.AProducts
+<div>Create</div>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="choosenProduct.name" class="control-label"></label>
+                <input asp-for="choosenProduct.name" class="form-control" />
+                <span asp-validation-for="choosenProduct.name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="choosenProduct.supplier" class="control-label"></label>
+                <input asp-for="choosenProduct.supplier" class="form-control" />
+                <span asp-validation-for="choosenProduct.supplier" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="choosenProduct.summary" class="control-label"></label>
+                <input asp-for="choosenProduct.summary" class="form-control" />
+                <span asp-validation-for="choosenProduct.summary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="choosenProduct.description" class="control-label"></label>
+                <textarea asp-for="choosenProduct.description" class="form-control"></textarea>
+                <span asp-validation-for="choosenProduct.description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="choosenProduct.price" class="control-label"></label>
+                <input asp-for="choosenProduct.price" class="form-control" />
+                <span asp-validation-for="choosenProduct.price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="choosenProduct.category" class="control-label"></label>
+                <input asp-for="choosenProduct.category" class="form-control" />
+                <span asp-validation-for="choosenProduct.category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

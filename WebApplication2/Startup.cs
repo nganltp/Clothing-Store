@@ -36,8 +36,8 @@ namespace WebApplication2
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddDbContext<WebApplication2Context>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("WebApplication2Context")));
+            services.AddDbContext<ShopDatabaseContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("ShopDatabaseContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,6 +63,9 @@ namespace WebApplication2
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(
+                    name: "withFunc",
+                    template: "{controller=Home}/{action=Index}/{id?}/{func?}");
             });
         }
     }

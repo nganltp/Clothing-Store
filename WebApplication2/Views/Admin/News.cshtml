@@ -1,0 +1,121 @@
+﻿@model WebApplication2.Models.ViewModels.Admin.ANews
+@{
+    ViewData["Title"] = "Admins";
+}
+<h1>@ViewBag.count</h1>
+
+<h1>Admins</h1>
+
+<table>
+    <thead>
+        <div>
+            <form asp-action="Promotion" method="get">
+                <div>
+                    <p>
+                        Find type name:   <input type="text" name="search" />
+                        <input type="submit" value="Search" />
+                        <a asp-action="News" asp-route-aId="0">Back to Full List</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+        <tr>
+            <th>
+                @Html.DisplayName("Id")
+            </th>
+            <th>
+                @Html.DisplayName("Admin")
+            </th>
+            <th>
+                @Html.DisplayName("Created")
+            </th>
+            <th>
+                @Html.DisplayName("Content")
+            </th>
+            <th>
+                @Html.DisplayName("Type")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ad in Model.news)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => ad.id)</td>
+
+                <td>@Html.DisplayFor(modelItem => ad.admin)</td>
+
+                <td>@Html.DisplayFor(modelItem => ad.created)</td>
+
+                <td>@Html.DisplayFor(modelItem => ad.content)</td>
+
+                <td>@Html.DisplayFor(modelItem => ad.type)</td>
+
+            </tr>
+        <td>
+            <a asp-action="News" asp-route-func="details" asp-route-id="@ad.id">Details</a>
+            <a asp-action="News" asp-route-func="edit" asp-route-id="@ad.id">Edit</a>
+
+        </td>
+    }
+        </tbody>
+    </table>
+    @for (int i = 1; i <= ViewBag.totalPage; i++)
+    {
+        <a asp-action="News" asp-route-PageId="@i">@i</a>
+    }
+    <a asp-action="News" asp-route-func="create">Create</a>
+    <h1>Admin Details</h1>
+    <div>
+        @if (Model.choosenNews.id != 0)
+        {
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => Model.choosenNews.id)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => Model.choosenNews.id)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => Model.choosenNews.admin)
+                </dt>
+                <dt class="col-sm-2">
+                    @Html.DisplayFor(model => Model.choosenNews.admin)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayNameFor(model => Model.choosenNews.created)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayFor(model => Model.choosenNews.created)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayNameFor(model => Model.choosenNews.content)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayFor(model => Model.choosenNews.content)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayNameFor(model => Model.choosenNews.type)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayFor(model => Model.choosenNews.type)
+                </dt>
+            </dl>
+        }
+    </div>
+    @if (ViewBag.isCreation == "Create" || ViewBag.isCreation == "Edit")
+    {
+        @using (Html.BeginForm("News"))
+        {
+            <input type="hidden" asp-for="editedNews.id" />
+            @Html.LabelFor(m => m.editedNews.admin)
+            @Html.TextBoxFor(m => m.editedNews.admin)
+            @Html.LabelFor(m => m.editedNews.created)
+            @Html.TextBoxFor(m => m.editedNews.created)
+            @Html.LabelFor(m => m.editedNews.content)
+            @Html.TextBoxFor(m => m.editedNews.content)
+            @Html.LabelFor(m => m.editedNews.type)
+            @Html.TextBoxFor(m => m.editedNews.type)
+            <input type="submit" value="@ViewBag.isCreation" />
+        }
+    }

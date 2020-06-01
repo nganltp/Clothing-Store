@@ -1,0 +1,263 @@
+﻿@model WebApplication2.Models.ViewModels.Admin.AUsers
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h1>Users</h1>
+
+<h1>Customer Account</h1>
+<table>
+    <thead>
+        <div>
+            <form asp-action="Users" method="get">
+                <div>
+                    <p>
+                        Find by name:   <input type="text" name="searchString" />
+                        <input type="submit" value="Search" />
+                        <a asp-action="Users" asp-route-id="0">Back to Full List</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+        <tr>
+            <th>
+                <a asp-action="Users" asp-route-sortOrder="id">
+                    @Html.DisplayName("Id")
+                </a>
+            </th>
+            <th>
+                <a asp-action="Users" asp-route-sortOrder="name">
+                    @Html.DisplayName("Name")
+                </a>
+            </th>
+            <th>
+                <a asp-action="Users" asp-route-sortOrder="email">
+                    @Html.DisplayName("Email")
+                </a>
+            </th>
+            <th>
+                <a asp-action="Users" asp-route-sortOrder="fullname">
+                    @Html.DisplayName("Full Name")
+                </a>
+            </th>
+            <th>
+                @Html.DisplayName("Type")
+            </th>
+            <th>
+                <a asp-action="Users" asp-route-sortOrder="open">
+                    @Html.DisplayName("Created")
+                </a>
+            </th>
+            <th>
+                <a asp-action="Users" asp-route-sortOrder="closed">
+                    @Html.DisplayName("Closed")
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cus in Model.customers)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => cus.id)</td>
+
+            <td>@Html.DisplayFor(modelItem => cus.username)</td>
+
+            <td>@Html.DisplayFor(modelItem => cus.email)</td>
+
+            <td>@Html.DisplayFor(modelItem => cus.fullName)</td>
+
+            <td>@Html.DisplayFor(modelItem => cus.type)</td>
+
+            <td>@Html.DisplayFor(modelItem => cus.created)</td>
+
+            <td>@Html.DisplayFor(modelItem => cus.closed)</td>
+            <td>
+                @if (cus.closed == cus.created)
+                {<a asp-action="Users" asp-route-func="close" asp-route-id="@cus.id">Close</a>}
+                @if (cus.closed != cus.created)
+                {<a asp-action="Users" asp-route-func="open" asp-route-id="@cus.id">Open</a>}
+                <a asp-action="Users" asp-route-func="details" asp-route-id="@cus.id">Details</a>
+                <a asp-action="Products" asp-route-func="delete" asp-route-id="@cus.id">Delete</a>
+
+            </td>
+        </tr>
+        
+    }
+        </tbody>
+    </table>
+    @for (int i = 1; i <= ViewBag.totalPages; i++)
+    {
+        <a asp-action="Users" asp-route-pageId="@i">@i</a>
+    }
+
+    <hr />
+
+
+    <h1>Customer Details</h1>
+    <div>
+        @if (Model.choosenCustomer != null)
+        {
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => Model.choosenCustomer.id)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => Model.choosenCustomer.id)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => Model.choosenCustomer.username)
+                </dt>
+                <dt class="col-sm-2">
+                    @Html.DisplayFor(model => Model.choosenCustomer.username)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayNameFor(model => Model.choosenCustomer.email)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayFor(model => Model.choosenCustomer.email)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayNameFor(model => Model.choosenCustomer.fullName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayFor(model => Model.choosenCustomer.fullName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayNameFor(model => Model.choosenCustomer.birth)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayFor(model => Model.choosenCustomer.birth)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayNameFor(model => Model.choosenCustomer.password)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayFor(model => Model.choosenCustomer.password)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayNameFor(model => Model.choosenCustomer.type)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayFor(model => model.choosenCustomer.type)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayNameFor(model => Model.choosenCustomer.created)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayFor(model => model.choosenCustomer.created)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayNameFor(model => Model.choosenCustomer.closed)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayFor(model => model.choosenCustomer.closed)
+                </dt>
+            </dl>
+        }
+    </div>
+    <h1>Address</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Customer")
+                </th>
+                <th>
+                    @Html.DisplayName("Detail")
+                </th>
+                <th>
+                    @Html.DisplayName("Phone")
+                </th>
+                <th>
+                    @Html.DisplayName("DefaultAddress")
+                </th>
+                <th>
+                    @Html.DisplayName("HomeAddress")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ad in Model.addresses)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => ad.customer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => ad.detail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => ad.phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => ad.isDefaultAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => ad.isHomeAddress)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h1>Comments</h1>
+    <a asp-action="Users" asp-route-id="0">Back to Full List</a>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Account")
+                </th>
+                <th>
+                    @Html.DisplayName("Product")
+                </th>
+                <th>
+                    <a asp-action="Users" asp-route-sortOrder="stars">
+                        @Html.DisplayName("Stars")
+                    </a>
+                </th>
+                <th>
+                    @Html.DisplayName("Title")
+                </th>
+                <th>
+                    @Html.DisplayName("Content")
+                </th>
+                <th>
+                    <a asp-action="Users" asp-route-sortOrder="created">
+                        @Html.DisplayName("Created")
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var com in Model.comments)
+            {
+                <tr>
+                    <td>
+                        <a asp-action="Users" asp-route-id="@com.account" asp-route-func="details">
+                            @Html.DisplayFor(model => com.account)
+                        </a>
+                    </td>
+                    <td>
+                        <a asp-action="Products" asp-route-id="@com.product" asp-route-func="details">
+                            @Html.DisplayFor(model => com.product)
+                        </a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => com.stars)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => com.title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => com.content)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => com.created)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
