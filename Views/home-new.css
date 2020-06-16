@@ -1,0 +1,144 @@
+i{
+    width: 20px;
+    height: 20px;
+}
+body {
+    font-weight: 500;
+    font-family: 'Jost',sans-serif;
+}
+.n-brand {
+    display: inline-block;
+/*    margin-right: 16px;*/
+    font-size: 28px;
+    line-height: inherit;
+    white-space: nowrap;
+    color: black;
+    font-family: 'Jost',sans-serif;
+    font-weight: 600;
+/*    margin: 0px 16px 0 0px*/
+}
+.n-brand:hover{
+    color: black;
+    text-decoration: none;
+}
+
+.nav-link{
+    color: black;
+    font-family: 'Jost',sans-serif;
+    font-size: 16px;
+     font-weight: 600;
+}
+.nav-link:hover{
+    color: #fd7e14;
+}
+.n-promo {
+    padding: 12px; 
+    text-align: center; 
+    font-family: 'Jost';
+    color:white;
+    font-size: 13px;
+}
+.n-bgwoman{
+    background-image: url(https://fashionisers.com/wp-content/uploads/2019/04/Perfect-Casual-Style-Tips-for-Women-1160x720.jpg);
+    min-height: 470px;
+}
+.n-bgmen{
+    background-image: url(img/men.jpg);
+    min-height: 470px;
+    
+}
+.n-bgmen:hover{
+    opacity: 0.7;
+}
+.n-bgwoman:hover{
+    opacity: 0.7;
+}
+
+.n-cate{
+    text-align: center;
+    font-family: 'Jost';
+    color:white;
+    font-size: 60px;
+    font-weight: 600
+}
+.btn-cate{
+    font-family: 'Jost';
+    color:black;
+    font-size: 20px;
+    font-weight: 500;
+    height: 100%;
+}
+.btn-cate:hover{
+    opacity: 1;
+    color:#fd7e14;
+     font-weight: 600;
+    font-size: 22px;
+    
+}
+
+/*Modal*/
+/*******************************
+* MODAL AS LEFT/RIGHT SIDEBAR
+* Add "left" or "right" in modal parent div, after class="modal".
+* Get free snippets on bootpen.com
+*******************************/
+	.modal.left .modal-dialog,
+	.modal.right .modal-dialog {
+		position: fixed;
+		margin: auto;
+		width: 320px;
+		height: 100%;
+		-webkit-transform: translate3d(0%, 0, 0);
+		    -ms-transform: translate3d(0%, 0, 0);
+		     -o-transform: translate3d(0%, 0, 0);
+		        transform: translate3d(0%, 0, 0);
+	}
+
+	.modal.left .modal-content,
+	.modal.right .modal-content {
+		height: 100%;
+		overflow-y: auto;
+	}
+	
+	.modal.left .modal-body,
+	.modal.right .modal-body {
+		padding: 15px 15px 80px;
+	}
+
+/*Left*/
+	.modal.left.fade .modal-dialog{
+		left: -320px;
+		-webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+		   -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+		     -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+		        transition: opacity 0.3s linear, left 0.3s ease-out;
+	}
+	
+	.modal.left.fade.in .modal-dialog{
+		left: 0;
+	}
+        
+/*Right*/
+	.modal.right.fade .modal-dialog {
+		right: -320px;
+		-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+		   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+		     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+		        transition: opacity 0.3s linear, right 0.3s ease-out;
+	}
+	
+	.modal.right.fade.in .modal-dialog {
+		right: 0;
+	}
+
+/* ----- MODAL STYLE ----- */
+	.modal-content {
+		border-radius: 0;
+		border: none;
+	}
+
+	.modal-header {
+		border-bottom-color: #EEEEEE;
+		background-color: #FAFAFA;
+	}
+
