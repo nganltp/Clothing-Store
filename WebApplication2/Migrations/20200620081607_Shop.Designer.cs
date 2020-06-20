@@ -10,8 +10,8 @@ using WebApplication2.Data;
 namespace WebApplication2.Migrations
 {
     [DbContext(typeof(ShopDatabaseContext))]
-    [Migration("20200504100144_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200620081607_Shop")]
+    partial class Shop
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

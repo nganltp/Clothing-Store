@@ -8,7 +8,22 @@ namespace WebApplication2.Controllers.ViewModels.User
 {
     public class UserController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Home()
+        {
+            return View();
+        }
+
+        public IActionResult Catalog()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        public IActionResult News()
         {
             return View();
         }

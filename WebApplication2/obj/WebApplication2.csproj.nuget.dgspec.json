@@ -1,26 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ngoho\\Desktop\\Clothing-Store\\WebApplication2\\WebApplication2.csproj": {}
+    "D:\\ClothingStore\\Clothing-Store\\WebApplication2\\WebApplication2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ngoho\\Desktop\\Clothing-Store\\WebApplication2\\WebApplication2.csproj": {
+    "D:\\ClothingStore\\Clothing-Store\\WebApplication2\\WebApplication2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ngoho\\Desktop\\Clothing-Store\\WebApplication2\\WebApplication2.csproj",
+        "projectUniqueName": "D:\\ClothingStore\\Clothing-Store\\WebApplication2\\WebApplication2.csproj",
         "projectName": "WebApplication2",
-        "projectPath": "C:\\Users\\ngoho\\Desktop\\Clothing-Store\\WebApplication2\\WebApplication2.csproj",
-        "packagesPath": "C:\\Users\\ngoho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ngoho\\Desktop\\Clothing-Store\\WebApplication2\\obj\\",
+        "projectPath": "D:\\ClothingStore\\Clothing-Store\\WebApplication2\\WebApplication2.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "D:\\ClothingStore\\Clothing-Store\\WebApplication2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\ngoho\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net461"
@@ -86,7 +84,7 @@
               "version": "[2.2.4, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
