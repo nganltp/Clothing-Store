@@ -6,6 +6,10 @@ body {
     font-weight: 500;
     font-family: 'Jost',sans-serif;
 }
+a{
+    color: black;
+    text-decoration: none;
+}
 .n-brand {
     display: inline-block;
 /*    margin-right: 16px;*/
@@ -49,4 +53,115 @@ body {
 }
 .n-view-collection:hover{
     text-decoration: none;
+}
+ul {
+    list-style-type: none;
+}
+.breadcrumb {
+  background-color: white;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  display: inline-block;
+  padding-right: 0.5rem;
+  color: #909090;
+  content: ">";
+}
+.breadcrumb-item {
+    color: #909090
+}
+.text-gray-400{
+    color: #909090!important;
+        font-size: 14px;
+}
+.text-gray-400:hover{
+    text-decoration: none;
+}
+.breadcrumb-item + .breadcrumb-item:hover::before {
+  text-decoration: none;
+}
+.card-img-hover {
+    display: block;
+}
+
+.mb-7, .my-7 {
+    margin-bottom: 2rem!important;
+}
+.card-badge-left {
+    left: 0;
+}
+.card-badge {
+    position: absolute;
+    top: 1.25rem;
+    z-index: 1;
+}
+.badge-white {
+    background-color: #fff;
+    color: #111;
+}
+.badge {
+    letter-spacing: .02em;
+}
+.text-uppercase {
+    text-transform: uppercase!important;
+}
+.card-img {
+    position: relative;
+}
+.card-actions {
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1.25rem;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(17,17,17,.125);
+}
+.card>* {
+    flex-shrink: 0;
+}
+a {
+    transition: all .1s ease-in-out;
+    transition-property: color;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+    transition-property: color;
+}
+.card-img-hover .card-img-back {
+    opacity: 0;
+}
+.card-img-hover .card-img-top {
+        transition: opacity .2s ease-in-out;
+    transition-property: opacity;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+card-img-hover>* {
+    float: left;
+}
+.card-img, .card-img-bottom, .card-img-top {
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.text-decoration-line-through {
+    text-decoration: line-through!important;
+}
+
+.text-gray-350 {
+    color: #a6a6a6!important;
+}
+.text-primary {
+    color: #ff6f61!important;
 }
