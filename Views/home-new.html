@@ -12,9 +12,11 @@
       <style>
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@500;600&display=swap');
           
+/*
           .modal.right.fade.show .modal-dialog {
     right: 0;
 }
+*/
 </style>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script src="https://unpkg.com/feather-icons"></script>
@@ -33,7 +35,7 @@
     <a class="nav-link" href="/Views/home-new.html" >Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#!">Catalog</a>
+    <a class="nav-link" href="/Views/shop.html">Catalog</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#!">Contact Us</a>
@@ -234,7 +236,7 @@
         
 <!--        Modals-->
         <!-- Shopping Cart -->
-    <div class="modal fade fixed-right right" id="modalShoppingCart" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="modalShoppingCart" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog modal-dialog-vertical" role="document">
 
         <!-- Full cart (add `.d-none` to disable it) -->
