@@ -7,5 +7,6 @@ namespace WebApplication2.Models.ViewModels.User
 {
     public class User
     {
+
     }
 }

@@ -5,6 +5,26 @@
     <DebugType>full</DebugType>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\Assets\icon\shopping-cart.svg" />
+    <None Include="wwwroot\Assets\img\clothing1.png" />
+    <None Include="wwwroot\Assets\img\clothing2.png" />
+    <None Include="wwwroot\Assets\img\clothing3.png" />
+    <None Include="wwwroot\Assets\img\men.jpg" />
+    <None Include="wwwroot\Assets\img\new-1.png" />
+    <None Include="wwwroot\Assets\img\new-2.png" />
+    <None Include="wwwroot\Assets\img\news.png" />
+    <None Include="wwwroot\Assets\img\product-1.jpg" />
+    <None Include="wwwroot\Assets\img\product-2.jpg" />
+    <None Include="wwwroot\Assets\img\product-3.jpg" />
+    <None Include="wwwroot\Assets\img\shop.html" />
+    <None Include="wwwroot\Assets\img\slide_promo.png" />
+    <None Include="wwwroot\Assets\img\slide_promo_2.png" />
+    <None Include="wwwroot\Assets\img\slide_promo_3.png" />
+    <None Include="wwwroot\Assets\img\title_new.png" />
+    <None Include="wwwroot\Assets\img\woman.jpg" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
@@ -20,11 +40,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>
