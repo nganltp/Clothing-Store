@@ -1,0 +1,52 @@
+i{
+    width: 20px;
+    height: 20px;
+}
+body {
+    font-weight: 500;
+    font-family: 'Jost',sans-serif;
+}
+.n-brand {
+    display: inline-block;
+/*    margin-right: 16px;*/
+    font-size: 28px;
+    line-height: inherit;
+    white-space: nowrap;
+    color: black;
+    font-family: 'Jost',sans-serif;
+    font-weight: 600;
+/*    margin: 0px 16px 0 0px*/
+}
+.n-brand:hover{
+    color: black;
+    text-decoration: none;
+}
+
+.nav-link{
+    color: black;
+    font-family: 'Jost',sans-serif;
+    font-size: 16px;
+     font-weight: 600;
+}
+.nav-link:hover{
+    color: #fd7e14;
+}
+.n-promo {
+    padding: 12px; 
+    text-align: center; 
+    font-family: 'Jost';
+    color:white;
+    font-size: 13px;
+}
+.n-filter-title{
+    color: #525252;
+    font-size: 16px;
+}
+.n-filter-title:hover{
+    color: black;
+    text-decoration: none;
+    
+}
+.n-view-collection:hover{
+    text-decoration: none;
+}
