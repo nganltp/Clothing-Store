@@ -2,75 +2,70 @@
 @{
     ViewData["Title"] = "Orders";
 }
-<h1>Orders</h1>
+
 <h1>@ViewBag.sort</h1>
-<h1>Shopping Cart List</h1>
-<table>
-    <thead>
-        <div>
+
+<div>
+    <h1>Shopping Cart List</h1>
+    <table class="table">
+        <thead>
             <form asp-action="Orders" method="get">
                 <div>
                     Find by user:
                     <input type="text" name="cSrch" />
-                    <input type="submit" value="search" />
+                    <input type="submit" class="btn btn-primary" value="search" />
                     <a asp-action="Orders" asp-route-cId="0">Back to full list</a>
                 </div>
             </form>
-        </div>
-        <tr>
-            <th>
-                @Html.DisplayName("id")
-            </th>
-            <th>
-                <a asp-action="Orders" asp-route-sortOrder="cCustomer">
+            <tr>
+                <th>
+                    @Html.DisplayName("id")
+                </th>
+                <th>
                     @Html.DisplayName("customer")
-                </a>
-            </th>
-            <th>
-                <a asp-action="Orders" asp-route-sortOrder="cCreated">
+                </th>
+                <th>
                     @Html.DisplayName("created")
-                </a>
-            </th>
-            <th>
-                <a asp-action="Orders" asp-route-sortOrder="discard">
+                </th>
+                <th>
                     @Html.DisplayName("discard")
-                </a>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
 
-        @foreach (var or in Model.shoppingCarts)
-        {
-        <tr>
-            <td>@Html.DisplayFor(m => or.id)</td>
-            <td>@Html.DisplayFor(m => or.customer)</td>
-            <td>@Html.DisplayFor(m => or.created)</td>
-            <td>@Html.DisplayFor(m => or.discard)</td>
-            <td>
-                <a asp-action="Orders" asp-route-func="delete" asp-route-cId="@or.id">Delete</a>
-                <a asp-action="Orders" asp-route-func="details" asp-route-cId="@or.id">Details</a>
-            </td>
-        </tr>
-        
-    }
+            @foreach (var or in Model.shoppingCarts)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => or.id)</td>
+                    <td>@Html.DisplayFor(m => or.customer)</td>
+                    <td>@Html.DisplayFor(m => or.created)</td>
+                    <td>@Html.DisplayFor(m => or.discard)</td>
+                    <td>
+                        <a asp-action="Orders" asp-route-func="delete" asp-route-cId="@or.id">Delete</a>
+                        <a asp-action="Orders" asp-route-func="details" asp-route-cId="@or.id">Details</a>
+                    </td>
+                </tr>
+
+            }
         </tbody>
     </table>
     @for (int i = 1; i <= ViewBag.totalCPage; i++)
     {
         <a asp-action="Orders" asp-route-cPageId="@i">@i</a>
     }
-
+</div>
+<div>
     <hr />
     <h1>Items List</h1>
-    <table>
+    <table class="table">
         <thead>
             <div>
                 <form asp-action="Orders" method="get">
                     <div>
                         Find by product:
                         <input type="text" name="iSrch" />
-                        <input type="submit" value="search" />
+                        <input type="submit" class="btn btn-primary" value="search" />
                         <a asp-action="Orders" asp-route-cId="0" asp-route-oId="0">Back to full list</a>
                     </div>
                 </form>
@@ -89,140 +84,150 @@
             {
                 <tr>
                     <td>@Html.DisplayFor(m => or.id)</td>
-               
+
                     <td>@Html.DisplayFor(m => or.product)</td>
-                
+
                     <td>@Html.DisplayFor(m => or.cart)</td>
-                
+
                     <td>@Html.DisplayFor(m => or.order)</td>
-               
+
                     <td>@Html.DisplayFor(m => or.price)</td>
-                
+
                     <td>@Html.DisplayFor(m => or.quantity)</td>
-                        
+
                     <td>
                         <a asp-action="Orders" asp-route-func="delete" asp-route-iId="@or.id">Delete</a>
                     </td>
                 </tr>
-        }
-            </tbody>
-        </table>
+            }
+        </tbody>
+    </table>
 
-        @for (int i = 1; i <= ViewBag.totalIPage; i++)
-        {
-            <a asp-action="Orders" asp-route-iPageId="@i">@i</a>
-        }
-        <h1>Order List</h1>
-        <table>
-            <thead>
+    @for (int i = 1; i <= ViewBag.totalIPage; i++)
+    {
+        <a asp-action="Orders" asp-route-iPageId="@i">@i</a>
+    }
+</div>
+<div>
+    <h1>Order List</h1>
+    <table class="table">
+        <thead>
+
+            <form asp-action="Orders" method="get">
                 <div>
-                    <form asp-action="Orders" method="get">
-                        <div>
-                            Find by user:
-                            <input type="text" name="oSrch" />
-                            <input type="submit" value="search" />
-                            <a asp-action="Orders" asp-route-oId="0">Back to full list</a>
-                        </div>
-                    </form>
+                    Find by user:
+                    <input type="text" name="oSrch" />
+                    <input type="submit" class="btn btn-primary" value="search" />
+                    <a asp-action="Orders" asp-route-oId="0">Back to full list</a>
                 </div>
+            </form>
+
+            <tr>
+                <th>
+                    @Html.DisplayName("id")
+                </th>
+                <th>
+
+                    @Html.DisplayName("customer")
+
+                </th>
+                <th>
+
+                    @Html.DisplayName("promotion")
+
+                </th>
+                <th>
+
+                    @Html.DisplayName("orders")
+
+                </th>
+                <th>
+                    @Html.DisplayName("address")
+                </th>
+                <th>
+
+                    @Html.DisplayName("status")
+
+                </th>
+                <th>
+                    @Html.DisplayName("total")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var or in Model.orders)
+            {
                 <tr>
-                    <th>
-                        @Html.DisplayName("id")
-                    </th>
-                    <th>
-                        <a asp-action="Orders" asp-route-sortOrder="oCustomer">
-                            @Html.DisplayName("customer")
-                        </a>
-                    </th>
-                    <th>
-                        <a asp-action="Orders" asp-route-sortOrder="oCreated">
-                            @Html.DisplayName("promotion")
-                        </a>
-                    </th>
-                    <th>
-                        <a asp-action="Orders" asp-route-sortOrder="ordered">
-                            @Html.DisplayName("orders")
-                        </a>
-                    </th>
-                    <th>
-                        @Html.DisplayName("address")
-                    </th>
-                    <th>
-                        <a asp-action="Orders" asp-route-sortOrder="status">
-                            @Html.DisplayName("status")
-                        </a>
-                    </th>
-                    <th>
-                        <a asp-action="Orders" asp-route-sortOrder="total">
-                            @Html.DisplayName("total")
-                        </a>
-                    </th>
+                    <td>@Html.DisplayFor(m => or.id)</td>
+
+                    <td>@Html.DisplayFor(m => or.customer)</td>
+
+                    <td>@Html.DisplayFor(m => or.promotion)</td>
+
+                    <td>@Html.DisplayFor(m => or.ordered)</td>
+
+                    <td>@Html.DisplayFor(m => or.address)</td>
+
+                    <td>@Html.DisplayFor(m => or.status)</td>
+
+                    <td>@Html.DisplayFor(m => or.total)</td>
+                    <td>
+                        <a asp-action="Orders" asp-route-func="delete" asp-route-oId="@or.id">Delete</a>
+                        <a asp-action="Orders" asp-route-func="details" asp-route-oId="@or.id">Details</a>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var or in Model.orders)
-                {
-                    <tr>
-                        <td>@Html.DisplayFor(m => or.id)</td>
-                    
-                        <td>@Html.DisplayFor(m => or.customer)</td>
-                    
-                        <td>@Html.DisplayFor(m => or.promotion)</td>
-                    
-                        <td>@Html.DisplayFor(m => or.ordered)</td>
-                    
-                        <td>@Html.DisplayFor(m => or.address)</td>
-                   
-                        <td>@Html.DisplayFor(m => or.status)</td>
-                    
-                        <td>@Html.DisplayFor(m => or.total)</td>
-                        <td>
-                            <a asp-action="Orders" asp-route-func="delete" asp-route-oId="@or.id">Delete</a>
-                            <a asp-action="Orders" asp-route-func="details" asp-route-oId="@or.id">Details</a>
-                        </td>
-                    </tr>
 
             }
-                </tbody>
-            </table>
-            @for (int i = 1; i <= ViewBag.totalOPage; i++)
+        </tbody>
+    </table>
+    @for (int i = 1; i <= ViewBag.totalOPage; i++)
+    {
+        <a asp-action="Orders" asp-route-oPageId="@i">@i</a>
+    }
+</div>
+<div>
+
+    <h1>Payment infor</h1>
+    <table class="table">
+        <thead>
+            <form asp-action="Payment" method="get">
+                <div>
+                    Find by order:
+                    <input type="text" name="cSrch" />
+                    <input type="submit" class="btn btn-primary" value="search" />
+                    <a asp-action="Payment" asp-route-cId="0">Back to full list</a>
+                </div>
+            </form>
+            <tr>
+                <th>@Html.DisplayName("id")</th>
+                <th>@Html.DisplayName("order")</th>
+                <th>@Html.DisplayName("paid")</th>
+                <th>@Html.DisplayName("payer")</th>
+                <th>@Html.DisplayName("method")</th>
+                <th>@Html.DisplayName("note")</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var or in Model.payments)
             {
-                <a asp-action="Orders" asp-route-oPageId="@i">@i</a>
-            }
+                <tr>
+                    <td>@Html.DisplayFor(m => or.id)</td>
 
-            <h1>Payment infor</h1>
-            <table>
-                <thead>
+                    <td>@Html.DisplayFor(m => or.order)</td>
 
-                    <tr>
-                        <th>@Html.DisplayName("id")</th>
-                        <th>@Html.DisplayName("order")</th>
-                        <th>@Html.DisplayName("paid")</th>
-                        <th>@Html.DisplayName("payer")</th>
-                        <th>@Html.DisplayName("method")</th>
-                        <th>@Html.DisplayName("note")</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var or in Model.payments)
-                    {
-                        <tr>
-                            <td>@Html.DisplayFor(m => or.id)</td>
-                       
-                            <td>@Html.DisplayFor(m => or.order)</td>
-                        
-                            <td>@Html.DisplayFor(m => or.paid)</td>
-                        
-                            <td>@Html.DisplayFor(m => or.payer)</td>
-                        
-                            <td>@Html.DisplayFor(m => or.method)</td>
-                       
-                            <td>@Html.DisplayFor(m => or.note)</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-            @for (int i = 1; i <= ViewBag.totalYPage; i++)
-            {
-                <a asp-action="Orders" asp-route-yPageId="@i">@i</a>
+                    <td>@Html.DisplayFor(m => or.paid)</td>
+
+                    <td>@Html.DisplayFor(m => or.payer)</td>
+
+                    <td>@Html.DisplayFor(m => or.method)</td>
+
+                    <td>@Html.DisplayFor(m => or.note)</td>
+                </tr>
             }
+        </tbody>
+    </table>
+    @for (int i = 1; i <= ViewBag.totalYPage; i++)
+    {
+        <a asp-action="Orders" asp-route-yPageId="@i">@i</a>
+    }
+</div>
