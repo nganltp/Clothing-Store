@@ -59,13 +59,51 @@ namespace WebApplication2.Controllers.ViewModels.User
 
         public IActionResult Home()
         {
+            
             return View();
         }
 
         public IActionResult Catalog(String dresses)
         {
+            //products = (List<Product>)products.Where(p => p.category.Contains(dresses));
+            //CatalogProductVM tempCatalog = new CatalogProductVM();
+            //products = db.Product.ToList();
+            //productSizes = db.ProductSize.ToList();
+            //images = db.Image.ToList();
+
+            //SearchThroughFilter(products, productSizes, images,dresses);
 
             return View(this.catalog);
+        }
+
+        private void SearchThroughFilter(List<Product> products, List<ProductSize> productSizes, List<Image> images, String dresses)
+        {
+            dresses = dresses.ToUpper();
+
+            CatalogProduct catalogproduct;
+            List<ProductSize> _size;
+            List<Image> _image;
+            string cat, subcat;
+            foreach (Product p in products)
+            {
+                _size = productSizes.Where(s => s.product == p.id).ToList();
+                _image = images.Where(i => i.whose == (1000 + p.id)).ToList();
+                cat = p.category.Split('_')[0].ToUpper();
+                subcat = p.category.Split('_')[1].ToUpper();
+                if (subcat == dresses)
+                {
+                    catalogproduct = new CatalogProduct()
+                    {
+                        product = p,
+                        productsizes = _size,
+                        images = _image,
+                        category = cat,
+                        subCategory = subcat
+                    };
+                    catalogproducts.Add(catalogproduct);
+                }
+            }
+            this.catalog.products = catalogproducts;
         }
 
         public IActionResult Contact()
@@ -75,9 +113,15 @@ namespace WebApplication2.Controllers.ViewModels.User
 
         public IActionResult News()
         {
+
             return View();
         }
 
+        public IActionResult Leggings()
+        {
+            return View();
+        }
+        
 
     }
 }
