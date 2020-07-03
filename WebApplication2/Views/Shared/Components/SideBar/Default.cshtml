@@ -2,22 +2,11 @@
 @{
     ViewData["Title"] = "Default";
 }
-<link href="~/css/dashboard.css" rel="stylesheet">
 
-<style>
-    a:hover {
-        background: #007bff;
+<h1>Default</h1>
+<div>
+    @foreach(var op in Model)
+    {
+        <a asp-controller="Admin" asp-action="@op">@op</a>
     }
-</style>
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-    <div class="sidebar-sticky pt-3">
-        <ul class="nav flex-column ntt-nav-link">
-            @foreach (var op in Model)
-            {
-                <li class="nav-item">
-                    <a class="nav-link " asp-controller="Admin" asp-action="@op">@op</a>
-                </li>
-            }
-        </ul>
-    </div>
-</nav>
+</div>

@@ -66,6 +66,7 @@ namespace WebApplication2.Controllers.ViewModels.Admin
                 shoppingCarts = db.ShoppingCart,
                 items = db.Item,
                 payments = db.Payment
+
             };
             this.aAdmins = new AAdmins()
             {
@@ -105,9 +106,9 @@ namespace WebApplication2.Controllers.ViewModels.Admin
         }        
         private void updateProductList(int id, int sizeId, string func, int sizeAlter = 0, string sortOrder="#")
         {
-            IEnumerable<Product> products = this.db.Product;
+            IEnumerable<Product> products = this.db.Product; //
             products = products.Where(s => s.name.Contains(search)
-                                                || s.supplier.Contains(search));
+                                                || s.supplier.Contains(search)); //
             IEnumerable<ProductSize> sizes = this.db.ProductSize;
             sizes = sizes.Where(s => s.product == this.aProducts.choosenProduct.id);
             for (int i = 0; i < pSortParams.Length; i++)

@@ -14,7 +14,7 @@ namespace WebApplication2.Models
         public int whose {get;set;}
         public string content { get; set; }
         public string format { get; set; }
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/YYYY HH:mm:ss}")]
         [DataType(DataType.DateTime)]
         public DateTime created { get; set; }
     }
