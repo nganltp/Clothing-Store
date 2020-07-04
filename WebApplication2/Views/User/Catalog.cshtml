@@ -24,7 +24,7 @@
                             <div class="">
                                 <ul class="mb-0" id="productsNav">
                                     <li>
-                                        <a class="n-filter-title" href="/Views/shop.html">
+                                        <a class="n-filter-title" >
                                             All Products
                                         </a>
                                     </li>
@@ -111,15 +111,15 @@
                                                 <div class="custom-control custom-checkbox mb-3">
                                                     <input class="custom-control-input" id="dressesOne" type="checkbox">
                                                     <label class="custom-control-label" for="dressesOne">
-                                                        <a asp-action="Catalog" asp-route-dresses="A-Line">
+                                                        <a asp-action="Catalog" asp-route-dresses="a lined">
                                                             A-Line Dresses
                                                         </a>
                                                     </label>
                                                 </div>
                                                 <div class="custom-control custom-checkbox mb-3">
-                                                    <input class="custom-control-input" id="dressesTwo" type="checkbox" checked>
+                                                    <input class="custom-control-input" id="dressesTwo" type="checkbox">
                                                     <label class="custom-control-label" for="dressesTwo">
-                                                        <a asp-action="Catalog" asp-route-dresses="Shift">
+                                                        <a asp-action="Catalog" asp-route-dresses="shift">
                                                             Shift Dresses
                                                         </a>
                                                     </label>
@@ -127,7 +127,7 @@
                                                 <div class="custom-control custom-checkbox mb-3">
                                                     <input class="custom-control-input" id="dressesThree" type="checkbox">
                                                     <label class="custom-control-label" for="dressesThree">
-                                                        <a asp-action="Catalog" asp-route-dresses="Wrap">
+                                                        <a asp-action="Catalog" asp-route-dresses="wrap">
                                                             Wrap Dresses
                                                         </a>
                                                     </label>
@@ -135,7 +135,7 @@
                                                 <div class="custom-control custom-checkbox">
                                                     <input class="custom-control-input" id="dressesFour" type="checkbox">
                                                     <label class="custom-control-label" for="dressesFour">
-                                                        <a asp-action="Catalog" asp-route-dresses="Maxi">
+                                                        <a asp-action="Catalog" asp-route-dresses="maxi">
                                                             Maxi Dresses
                                                         </a>
                                                     </label>
@@ -309,37 +309,25 @@
                                                 <div class="custom-control custom-checkbox mb-3">
                                                     <input class="custom-control-input" id="legginsOne" type="checkbox">
                                                     <label class="custom-control-label" for="legginsOne">
-                                                        
-                                                        <a asp-action="Catalog" asp-route-leggings="Novelty">
-                                                            Novelty Leggings
-                                                        </a>
+                                                        Novelty Leggings
                                                     </label>
                                                 </div>
                                                 <div class="custom-control custom-checkbox mb-3">
                                                     <input class="custom-control-input" id="legginsTwo" type="checkbox">
                                                     <label class="custom-control-label" for="legginsTwo">
-                                                        
-                                                        <a asp-action="Catalog" asp-route-leggings="NoveltyPantsCapris">
-                                                            Novelty Pants & Capris
-                                                        </a>
+                                                        Novelty Pants & Capris
                                                     </label>
                                                 </div>
                                                 <div class="custom-control custom-checkbox mb-3">
                                                     <input class="custom-control-input" id="legginsThree" type="checkbox">
                                                     <label class="custom-control-label" for="legginsThree">
-                                                        
-                                                        <a asp-action="Catalog" asp-route-leggings="WomenYoga">
-                                                            Women Yoga Leggings
-                                                        </a>
+                                                        Women Yoga Leggings
                                                     </label>
                                                 </div>
                                                 <div class="custom-control custom-checkbox">
                                                     <input class="custom-control-input" id="legginsFour" type="checkbox">
                                                     <label class="custom-control-label" for="legginsFour">
-                                                        
-                                                        <a asp-action="Catalog" asp-route-leggings="WorkoutTraining">
-                                                            Workout & Training Leggings
-                                                        </a>
+                                                        Workout & Training Leggings
                                                     </label>
                                                 </div>
                                             </div>
@@ -362,70 +350,54 @@
                         <!-- Collapse -->
                         <div class="collapse" id="sizeCollapse" data-toggle="simplebar" data-target="#sizeGroup">
                             <div class="form-group form-group-overlow mb-6" id="sizeGroup">
-                                <div class="custom-control custom-control-inline custom-control-size mb-2">
-                                    <input class="custom-control-input" id="sizeOne" type="checkbox">
-                                    <label class="custom-control-label" for="sizeOne">
-                                        3XS
-                                    </label>
-                                </div>
-                                <div class="custom-control custom-control-inline custom-control-size mb-2">
-                                    <input class="custom-control-input" id="sizeTwo" type="checkbox" disabled>
-                                    <label class="custom-control-label" for="sizeTwo">
-                                        2XS
-                                    </label>
-                                </div>
-                                <div class="custom-control custom-control-inline custom-control-size mb-2">
-                                    <input class="custom-control-input" id="sizeThree" type="checkbox">
-                                    <label class="custom-control-label" for="sizeThree">
-                                        XS
-                                    </label>
-                                </div>
+                                
                                 <div class="custom-control custom-control-inline custom-control-size mb-2">
                                     <input class="custom-control-input" id="sizeFour" type="checkbox">
                                     <label class="custom-control-label" for="sizeFour">
-                                        S
+                                        <a asp-action="Catalog" asp-route-size="S">
+                                            S
+                                        </a>s
                                     </label>
                                 </div>
                                 <div class="custom-control custom-control-inline custom-control-size mb-2">
-                                    <input class="custom-control-input" id="sizeFive" type="checkbox" checked>
+                                    <input class="custom-control-input" id="sizeFive" type="checkbox" >
                                     <label class="custom-control-label" for="sizeFive">
-                                        M
+                                        <a asp-action="Catalog" asp-route-size="M">
+                                            M
+                                        </a>
                                     </label>
                                 </div>
                                 <div class="custom-control custom-control-inline custom-control-size mb-2">
                                     <input class="custom-control-input" id="sizeSix" type="checkbox">
                                     <label class="custom-control-label" for="sizeSix">
-                                        L
+                                        <a asp-action="Catalog" asp-route-size="L">
+                                            L
+                                        </a>
                                     </label>
                                 </div>
                                 <div class="custom-control custom-control-inline custom-control-size mb-2">
                                     <input class="custom-control-input" id="sizeSeven" type="checkbox">
                                     <label class="custom-control-label" for="sizeSeven">
-                                        XL
+                                        <a asp-action="Catalog" asp-route-size="XL">
+                                            XL
+                                        </a>
                                     </label>
                                 </div>
                                 <div class="custom-control custom-control-inline custom-control-size mb-2">
                                     <input class="custom-control-input" id="sizeEight" type="checkbox" disabled>
                                     <label class="custom-control-label" for="sizeEight">
-                                        2XL
+                                        <a asp-action="Catalog" asp-route-size="2XL">
+                                            2Xl
+                                        </a>
                                     </label>
                                 </div>
-                                <div class="custom-control custom-control-inline custom-control-size mb-2">
-                                    <input class="custom-control-input" id="sizeNine" type="checkbox">
-                                    <label class="custom-control-label" for="sizeNine">
-                                        3XL
-                                    </label>
-                                </div>
-                                <div class="custom-control custom-control-inline custom-control-size mb-2">
-                                    <input class="custom-control-input" id="sizeTen" type="checkbox">
-                                    <label class="custom-control-label" for="sizeTen">
-                                        4XL
-                                    </label>
-                                </div>
+                                
                                 <div class="custom-control custom-control-inline custom-control-size mb-2">
                                     <input class="custom-control-input" id="sizeEleven" type="checkbox">
                                     <label class="custom-control-label" for="sizeEleven">
-                                        One Size
+                                        <a asp-action="Catalog" asp-route-size="One Size">
+                                            One Size
+                                        </a>
                                     </label>
                                 </div>
                             </div>
@@ -446,44 +418,41 @@
                             <!-- Form group-->
                             <div class="form-group form-group-overflow mb-6" id="priceGroup">
                                 <div class="custom-control custom-checkbox mb-3">
-                                    <input class="custom-control-input" id="priceOne" type="checkbox" checked>
+                                    <input class="custom-control-input" id="priceOne" type="checkbox" >
                                     <label class="custom-control-label" for="priceOne">
-                                        $10.00 - $49.00
+                                        <a asp-action="Catalog" asp-route-price="1">
+                                            $10.00 - $49.00
+                                        </a>
                                     </label>
                                 </div>
                                 <div class="custom-control custom-checkbox mb-3">
-                                    <input class="custom-control-input" id="priceTwo" type="checkbox" checked>
+                                    <input class="custom-control-input" id="priceTwo" type="checkbox" >
                                     <label class="custom-control-label" for="priceTwo">
-                                        $50.00 - $99.00
+                                        <a asp-action="Catalog" asp-route-price="2">
+                                            $50.00 - $99.00
+                                        </a>
                                     </label>
                                 </div>
                                 <div class="custom-control custom-checkbox mb-3">
                                     <input class="custom-control-input" id="priceThree" type="checkbox">
                                     <label class="custom-control-label" for="priceThree">
-                                        $100.00 - $199.00
+                                        <a asp-action="Catalog" asp-route-price="3">
+                                            $100.00 - $199.00
+                                        </a>
                                     </label>
                                 </div>
                                 <div class="custom-control custom-checkbox">
                                     <input class="custom-control-input" id="priceFour" type="checkbox">
                                     <label class="custom-control-label" for="priceFour">
-                                        $200.00 and Up
+                                        <a asp-action="Catalog" asp-route-price="4">
+                                            $200.00 and Up
+                                        </a>
                                     </label>
                                 </div>
                             </div>
 
                             <!-- Range -->
-                            <div class="d-flex align-items-center">
-
-                                <!-- Input -->
-                                <input type="number" class="form-control form-control-xs" placeholder="$10.00" min="10">
-
-                                <!-- Divider -->
-                                <div class="text-gray-350 mx-2">‒</div>
-
-                                <!-- Input -->
-                                <input type="number" class="form-control form-control-xs" placeholder="$350.00" max="350">
-
-                            </div>
+                            
 
                         </div>
 
@@ -517,7 +486,7 @@
                                     </h2>
 
                                     <!-- Button -->
-                                    <a class="btn btn-link px-0 text-body n-view-collection" href="/Views/shop.html">
+                                    <a class="btn btn-link px-0 text-body n-view-collection" >
                                         View Collection <i data-feather="arrow-right" style="width: 17px;height: 17px ;"></i>
                                     </a>
 
@@ -538,10 +507,10 @@
                     <!-- Breadcrumb -->
                     <ol class="breadcrumb mb-3 text-gray-400">
                         <li class="breadcrumb-item">
-                            <a class="text-gray-400" href="/Views/home-new.html">Home</a>
+                            <a class="text-gray-400" >Home</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a class="text-gray-400" href="/Views/shop.html">Shop</a>
+                            <a class="text-gray-400" >Shop</a>
                         </li>
                         <li class="breadcrumb-item">
                             Product
@@ -561,27 +530,69 @@
             <!--            Tags-->
             <div class="row mb-7">
                 <div class="col-12">
+                    @{
+                        if (Model.category != null && Model.category != "")
+                        {
+                            <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
 
-                    <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
-                        Shift dresses <a class="text-reset ml-2" href="#!" role="button">
-                            <i data-feather="x" style="width: 15px;height: 15px ;"></i>
-                        </a>
-                    </span>
-                    <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
-                        M <a class="text-reset ml-2" href="#!" role="button">
-                            <i data-feather="x" style="width: 15px;height: 15px ;"></i>
-                        </a>
-                    </span>
-                    <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
-                        $10.00 - $49.00 <a class="text-reset ml-2" href="#!" role="button">
-                            <i data-feather="x" style="width: 15px;height: 15px ;"></i>
-                        </a>
-                    </span>
-                    <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
-                        $50.00 - $99.00 <a class="text-reset ml-2" href="#!" role="button">
-                            <i data-feather="x" style="width: 15px;height: 15px ;"></i>
-                        </a>
-                    </span>
+                                <b>@Model.category</b>
+                                <a class="text-reset ml-2" role="button" asp-action="Catalog" asp-route-deletion="category">
+                                    <i data-feather="x" style="width: 15px;height: 15px ;"></i>
+                                </a>
+                            </span>
+                        }
+                    }
+                    @{
+                        if (Model.size != null && Model.size != "")
+                        {
+                            <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
+
+                                <b>@Model.size</b>
+                                <a class="text-reset ml-2" role="button" asp-action="Catalog" asp-route-deletion="size">
+                                    <i data-feather="x" style="width: 15px;height: 15px ;"></i>
+                                </a>
+                            </span>
+                        }
+                    }
+                    @{
+                        if (Model.price == 1)
+                        {
+                            <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
+                                $10.00 - $49.00
+                                <a class="text-reset ml-2" role="button" asp-action="Catalog" asp-route-deletion="price">
+                                    <i data-feather="x" style="width: 15px;height: 15px ;"></i>
+                                </a>
+                            </span>
+                        }
+                        else if (Model.price == 2)
+                        {
+                            <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
+                                $50.00 - $99.00
+                                <a class="text-reset ml-2" role="button" asp-action="Catalog" asp-route-deletion="price">
+                                    <i data-feather="x" style="width: 15px;height: 15px ;"></i>
+                                </a>
+                            </span>
+                        }
+                        else if (Model.price == 3)
+                        {
+                            <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
+                                $100.00 - $199.00
+                                <a class="text-reset ml-2" role="button" asp-action="Catalog" asp-route-deletion="price">
+                                    <i data-feather="x" style="width: 15px;height: 15px ;"></i>
+                                </a>
+                            </span>
+                        }
+                        else if (Model.price == 4)
+                        {
+                            <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
+                                $200 and Up
+                                <a class="text-reset ml-2" role="button" asp-action="Catalog" asp-route-deletion="price">
+                                    <i data-feather="x" style="width: 15px;height: 15px ;"></i>
+                                </a>
+                            </span>
+                        }
+                    }
+                    
 
                 </div>
             </div>
@@ -635,19 +646,19 @@
 
                                     <!-- Category -->
                                     <div class="font-size-xs">
-                                        <a class="text-muted" href="shop.html">@cp.category</a>
+                                        <a class="text-muted" >@cp.category</a>
                                     </div>
 
                                     <!-- Title -->
                                     <div class="font-weight-bold">
-                                        <a class="text-body" href="product.html">
+                                        <a class="text-body" >
                                             @cp.product.name.ToUpper()
                                         </a>
                                     </div>
 
                                     <!-- Price -->
                                     <div class="font-weight-bold text-muted">
-                                        '$' + @cp.product.price
+                                        $@cp.product.price
                                     </div>
 
                                 </div>
