@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detail</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet"  href="shop.css">
+      <link rel = "stylesheet" href = "account-orders.css">
+      <style>
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@500;600&display=swap');
+          
+/*
+          .modal.right.fade.show .modal-dialog {
+    right: 0;
+}
+*/
+</style>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+    <body>
+        <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
+              <li class="breadcrumb-item">
+                <a class="text-gray-400" href="index.html">Home</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a class="text-gray-400" href="shop.html">Women's Shoes</a>
+              </li>
+              <li class="breadcrumb-item active">
+                Leather Sneakers
+              </li>
+            </ol>
+    
+        
+<!--        PRODUCT-->
+        <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="row">
+              <div class="col-12 col-md-6">
+
+                <!-- Card -->
+                <div class="card">
+
+                  <!-- Badge -->
+                  <div class="badge badge-primary card-badge text-uppercase">
+                    Sale
+                  </div>
+
+                  <!-- Slider -->
+                  <div class="mb-4 flickity-enabled is-fade" data-flickity="{&quot;draggable&quot;: false, &quot;fade&quot;: true}" id="productSlider" tabindex="0">
+
+                    <!-- Item -->
+                    
+
+                    <!-- Item -->
+                    
+
+                    <!-- Item -->
+                    
+
+                  <div class="flickity-viewport" style="height: 637.625px; touch-action: pan-y;"><div class="flickity-slider" style="left: 0px; transform: translateX(0%);"><a href="assets/img/products/product-7.jpg" data-fancybox="" class="is-selected" style="position: absolute; left: 0%; opacity: 1;">
+                      <img src="img/clothing2.png" alt="..." class="card-img-top">
+                    </a><a href="img/clothing3.png" data-fancybox="" aria-hidden="true" style="position: absolute; left: 0%; opacity: 0;">
+                      <img src="img/clothing4.png" alt="..." class="card-img-top">
+                    </a><a href="img/clothing5.png" data-fancybox="" aria-hidden="true" style="position: absolute; left: 0%; opacity: 0;">
+                      <img src="assets/img/products/product-146.jpg" alt="..." class="card-img-top">
+                    </a></div></div></div>
+
+                </div>
+
+                <!-- Slider -->
+                <div class="flickity-nav mx-n2 mb-10 mb-md-0 flickity-enabled is-draggable" data-flickity="{&quot;asNavFor&quot;: &quot;#productSlider&quot;, &quot;contain&quot;: true, &quot;wrapAround&quot;: false}" tabindex="0">
+
+                  <!-- Item -->
+                  
+
+                  <!-- Item -->
+                  
+
+                  <!-- Item -->
+                  
+
+                <div class="flickity-viewport" style="height: 97px; touch-action: pan-y;"><div class="flickity-slider" style="left: 0px; transform: translateX(0%);"><div class="col-12 px-2 is-nav-selected is-selected" style="max-width: 113px; position: absolute; left: 0%;">
+
+                    <!-- Image -->
+                    <div class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(assets/img/products/product-7.jpg);"></div>
+
+                  </div><div class="col-12 px-2" style="max-width: 113px; position: absolute; left: 20.4%;" aria-hidden="true">
+
+                    <!-- Image -->
+                    <div class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(assets/img/products/product-122.jpg);"></div>
+
+                  </div><div class="col-12 px-2" style="max-width: 113px; position: absolute; left: 40.79%;" aria-hidden="true">
+
+                    <!-- Image -->
+                    <div class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(assets/img/products/product-146.jpg);"></div>
+
+                  </div></div></div></div>
+
+              </div>
+              <div class="col-12 col-md-6 pl-lg-10">
+
+                <!-- Header -->
+                <div class="row mb-1">
+                  <div class="col">
+
+                    <!-- Preheading -->
+                    <a class="text-muted" href="shop.html">Sneakers</a>
+
+                  </div>
+                </div>
+
+                <!-- Heading -->
+                <h3 class="mb-2">Leather Sneakers</h3>
+
+                <!-- Price -->
+                <div class="mb-7">
+                  <span class="font-size-lg font-weight-bold text-gray-350 text-decoration-line-through">$115.00</span>
+                  <span class="ml-1 font-size-h5 font-weight-bolder text-primary">$85.00</span>
+                  <span class="font-size-sm ml-1">(In Stock)</span>
+                </div>
+
+                <!-- Form -->
+                <form>
+                  <div class="form-group">
+
+                    <!-- Label -->
+                    <p class="mb-5">
+                      Color: <strong id="colorCaption">White</strong>
+                    </p>
+
+                  </div>
+                  <div class="form-group">
+
+                    <!-- Label -->
+                    <p class="mb-5">
+                      Size: <strong><span id="sizeCaption">7.5</span> US</strong>
+                    </p>
+
+                    <!-- Radio -->
+                    <div class="mb-2">
+                      <div class="custom-control custom-control-inline custom-control-size mb-2">
+                        <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioOne" value="6" data-toggle="form-caption" data-target="#sizeCaption">
+                        <label class="custom-control-label" for="sizeRadioOne">6</label>
+                      </div>
+                      <div class="custom-control custom-control-inline custom-control-size mb-2">
+                        <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioTwo" value="6.5" data-toggle="form-caption" data-target="#sizeCaption" disabled="">
+                        <label class="custom-control-label" for="sizeRadioTwo">6.5</label>
+                      </div>
+                      <div class="custom-control custom-control-inline custom-control-size mb-2">
+                        <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioThree" value="7" data-toggle="form-caption" data-target="#sizeCaption">
+                        <label class="custom-control-label" for="sizeRadioThree">7</label>
+                      </div>
+                      <div class="custom-control custom-control-inline custom-control-size mb-2">
+                        <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioFour" value="7.5" data-toggle="form-caption" data-target="#sizeCaption" checked="">
+                        <label class="custom-control-label" for="sizeRadioFour">7.5</label>
+                      </div>
+                      <div class="custom-control custom-control-inline custom-control-size mb-2">
+                        <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioFive" value="8" data-toggle="form-caption" data-target="#sizeCaption">
+                        <label class="custom-control-label" for="sizeRadioFive">8</label>
+                      </div>
+                      <div class="custom-control custom-control-inline custom-control-size mb-2">
+                        <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioSix" value="8.5" data-toggle="form-caption" data-target="#sizeCaption">
+                        <label class="custom-control-label" for="sizeRadioSix">8.5</label>
+                      </div>
+                      <div class="custom-control custom-control-inline custom-control-size mb-2">
+                        <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioSeven" value="9" data-toggle="form-caption" data-target="#sizeCaption" disabled="">
+                        <label class="custom-control-label" for="sizeRadioSeven">9</label>
+                      </div>
+                      <div class="custom-control custom-control-inline custom-control-size mb-2">
+                        <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioEight" value="9.5" data-toggle="form-caption" data-target="#sizeCaption" disabled="">
+                        <label class="custom-control-label" for="sizeRadioEight">9.5</label>
+                      </div>
+                      <div class="custom-control custom-control-inline custom-control-size mb-2">
+                        <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioNine" value="10" data-toggle="form-caption" data-target="#sizeCaption">
+                        <label class="custom-control-label" for="sizeRadioNine">10</label>
+                      </div>
+                      <div class="custom-control custom-control-inline custom-control-size mb-2">
+                        <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioTen" value="10.5" data-toggle="form-caption" data-target="#sizeCaption">
+                        <label class="custom-control-label" for="sizeRadioTen">10.5</label>
+                      </div>
+                      <div class="custom-control custom-control-inline custom-control-size mb-2">
+                        <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioEleven" value="11" data-toggle="form-caption" data-target="#sizeCaption">
+                        <label class="custom-control-label" for="sizeRadioEleven">11</label>
+                      </div>
+                      <div class="custom-control custom-control-inline custom-control-size mb-2">
+                        <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioTwelve" value="12" data-toggle="form-caption" data-target="#sizeCaption">
+                        <label class="custom-control-label" for="sizeRadioTwelve">12</label>
+                      </div>
+                      <div class="custom-control custom-control-inline custom-control-size mb-2">
+                        <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioThirteen" value="13" data-toggle="form-caption" data-target="#sizeCaption">
+                        <label class="custom-control-label" for="sizeRadioThirteen">13</label>
+                      </div>
+                      <div class="custom-control custom-control-inline custom-control-size mb-2">
+                        <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioFourteen" value="14" data-toggle="form-caption" data-target="#sizeCaption">
+                        <label class="custom-control-label" for="sizeRadioFourteen">14</label>
+                      </div>
+                    </div>
+
+                    <!-- Size chart -->
+
+                    <div class="form-row mb-7">
+                      <div class="col-12 col-lg-auto">
+
+                        <!-- Quantity -->
+                        <select class="custom-select mb-2">
+                          <option value="1" selected="">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                        </select>
+
+                      </div>
+                      <div class="col-12 col-lg">
+
+                        <!-- Submit -->
+                        <button type="submit" class="btn btn-block btn-dark mb-2">
+                          Add to Cart <i class="fe fe-shopping-cart ml-2"></i>
+                        </button>
+
+                      </div>
+                      <div class="col-12 col-lg-auto">
+
+                        <!-- Wishlist -->
+                        <button class="btn btn-outline-dark btn-block mb-2" data-toggle="button">
+                          Wishlist <i class="fe fe-heart ml-2"></i>
+                        </button>
+
+                      </div>
+                    </div>
+
+                    <!-- Text -->
+                    <p>
+                      <span class="text-gray-500">Is your size/color sold out?</span>
+                      <a class="text-reset text-decoration-underline" data-toggle="modal" href="#modalWaitList">Join the Wait List!</a>
+                    </p>
+
+                    <!-- Share -->
+                    <p class="mb-0">
+                      <span class="mr-4">Share:</span>
+                      <a class="btn btn-xxs btn-circle btn-light font-size-xxxs text-gray-350" href="#!">
+                        <i class="fab fa-twitter"></i>
+                      </a>
+                      <a class="btn btn-xxs btn-circle btn-light font-size-xxxs text-gray-350" href="#!">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a class="btn btn-xxs btn-circle btn-light font-size-xxxs text-gray-350" href="#!">
+                        <i class="fab fa-pinterest-p"></i>
+                      </a>
+                    </p>
+
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+            
+            
+<!--            DESCRIPTION-->
+            <section class="pt-11">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+
+            <!-- Nav -->
+            <div class="nav nav-tabs nav-overflow justify-content-start justify-content-md-center border-bottom">
+              <a class="nav-link active" data-toggle="tab" href="#descriptionTab">
+                Description
+              </a>
+              <a class="nav-link" data-toggle="tab" href="#sizeTab">
+                Size &amp; Fit
+              </a>
+              <a class="nav-link" data-toggle="tab" href="#shippingTab">
+                Shipping &amp; Return
+              </a>
+            </div>
+
+            <!-- Content -->
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="descriptionTab">
+                <div class="row justify-content-center py-9">
+                  <div class="col-12 col-lg-10 col-xl-8">
+                    <div class="row">
+                      <div class="col-12">
+
+                        <!-- Text -->
+                        <p class="text-gray-500">
+                          Won't herb first male seas, beast. Let upon, female upon third fifth every. Man subdue rule after years herb after
+                          form. And image may, morning. Behold in tree day sea that together cattle whose. Fifth gathering brought
+                          bearing. Abundantly creeping whose. Beginning form have void two. A whose.
+                        </p>
+
+                      </div>
+                      <div class="col-12 col-md-6">
+
+                        <!-- List -->
+                        <ul class="list list-unstyled mb-md-0 text-gray-500">
+                          <li>
+                            <strong class="text-body">SKU</strong>: #61590437
+                          </li>
+                          <li>
+                            <strong class="text-body">Occasion</strong>: Lifestyle, Sport
+                          </li>
+                          <li>
+                            <strong class="text-body">Country</strong>: Italy
+                          </li>
+                        </ul>
+
+                      </div>
+                      <div class="col-12 col-md-6">
+
+                        <!-- List -->
+                        <ul class="list list-unstyled mb-0">
+                          <li>
+                            <strong>Outer</strong>: Leather 100%, Polyamide 100%
+                          </li>
+                          <li>
+                            <strong>Lining</strong>: Polyester 100%
+                          </li>
+                          <li>
+                            <strong>CounSoletry</strong>: Rubber 100%
+                          </li>
+                        </ul>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="sizeTab">
+                <div class="row justify-content-center py-9">
+                  <div class="col-12 col-lg-10 col-xl-8">
+                    <div class="row">
+                      <div class="col-12 col-md-6">
+
+                        <!-- Text -->
+                        <p class="mb-4">
+                          <strong>Fitting information:</strong>
+                        </p>
+
+                        <!-- List -->
+                        <ul class="mb-md-0 text-gray-500">
+                          <li>
+                            Upon seas hath every years have whose
+                            subdue creeping they're it were.
+                          </li>
+                          <li>
+                            Make great day bearing.
+                          </li>
+                          <li>
+                            For the moveth is days don't said days.
+                          </li>
+                        </ul>
+
+                      </div>
+                      <div class="col-12 col-md-6">
+
+                        <!-- Text -->
+                        <p class="mb-4">
+                          <strong>Model measurements:</strong>
+                        </p>
+
+                        <!-- List -->
+                        <ul class="list-unstyled text-gray-500">
+                          <li>Height: 1.80 m</li>
+                          <li>Bust/Chest: 89 cm</li>
+                          <li>Hips: 91 cm</li>
+                          <li>Waist: 65 cm</li>
+                          <li>Model size: M</li>
+                        </ul>
+
+                        <!-- Size -->
+                        <p class="mb-0">
+                          <img src="assets/img/icons/icon-ruler.svg" alt="..." class="img-fluid">
+                          <a class="text-reset text-decoration-underline ml-3" data-toggle="modal" href="#modalSizeChart">Size chart</a>
+                        </p>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="shippingTab">
+                <div class="row justify-content-center py-9">
+                  <div class="col-12 col-lg-10 col-xl-8">
+
+                    <!-- Table -->
+                    <div class="table-responsive">
+                      <table class="table table-bordered table-sm table-hover">
+                        <thead>
+                          <tr>
+                            <th>Shipping Options</th>
+                            <th>Delivery Time</th>
+                            <th>Price</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Standard Shipping</td>
+                            <td>Delivery in 5 - 7 working days</td>
+                            <td>$8.00</td>
+                          </tr>
+                          <tr>
+                            <td>Express Shipping</td>
+                            <td>Delivery in 3 - 5 working days</td>
+                            <td>$12.00</td>
+                          </tr>
+                          <tr>
+                            <td>1 - 2 day Shipping</td>
+                            <td>Delivery in 1 - 2 working days</td>
+                            <td>$12.00</td>
+                          </tr>
+                          <tr>
+                            <td>Free Shipping</td>
+                            <td>
+                              Living won't the He one every subdue meat replenish
+                              face was you morning firmament darkness.
+                            </td>
+                            <td>$0.00</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <!-- Caption -->
+                    <p class="mb-0 text-gray-500">
+                      May, life blessed night so creature likeness their, for. <a class="text-body text-decoration-underline" href="#!">Find out more</a>
+                    </p>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+            
+            
+            
+            
+        
+        </section>
+        
+        
+        
+            <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script>
+      feather.replace()
+    </script>
+      <script src="https://kit.fontawesome.com/8039564289.js" crossorigin="anonymous"></script>
+        
+  </body>
+</html>
