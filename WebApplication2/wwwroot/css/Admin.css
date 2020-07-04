@@ -1,0 +1,11 @@
+b{
+    /* display: inline-block; */
+    /* height: 100%; */
+    vertical-align:middle;
+}
+.btn-menu:hover{
+   
+    font-weight: bold;
+    transition-duration: 0.4s;
+    
+}

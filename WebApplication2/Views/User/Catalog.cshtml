@@ -486,7 +486,7 @@
                                     </h2>
 
                                     <!-- Button -->
-                                    <a class="btn btn-link px-0 text-body n-view-collection" >
+                                    <a class="btn btn-link px-0 text-body n-view-collection">
                                         View Collection <i data-feather="arrow-right" style="width: 17px;height: 17px ;"></i>
                                     </a>
 
@@ -507,10 +507,10 @@
                     <!-- Breadcrumb -->
                     <ol class="breadcrumb mb-3 text-gray-400">
                         <li class="breadcrumb-item">
-                            <a class="text-gray-400" >Home</a>
+                            <a class="text-gray-400">Home</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a class="text-gray-400" >Shop</a>
+                            <a class="text-gray-400">Shop</a>
                         </li>
                         <li class="breadcrumb-item">
                             Product
@@ -592,18 +592,16 @@
                             </span>
                         }
                     }
-                    
+
 
                 </div>
             </div>
-            <!--            Products-->
-            @{ foreach (var cp in Model.products)
-                {
-                    <div class="row">
+            <div class="row">
+                <!--            Products-->
+                @{ foreach (var cp in Model.products)
+                    {
+
                         <div class="col-6 col-md-4">
-
-
-
 
                             <!-- Card -->
                             <div class="card mb-7">
@@ -619,7 +617,7 @@
                                     <!-- Image -->
                                     <a href="#!">
                                         <img class="card-img-top card-img-front" src="@Url.Content(cp.images[0].content)" alt="...">
-                                        
+
                                     </a>
 
                                     <!-- Actions -->
@@ -646,12 +644,12 @@
 
                                     <!-- Category -->
                                     <div class="font-size-xs">
-                                        <a class="text-muted" >@cp.category</a>
+                                        <a class="text-muted">@cp.category</a>
                                     </div>
 
                                     <!-- Title -->
                                     <div class="font-weight-bold">
-                                        <a class="text-body" >
+                                        <a class="text-body">
                                             @cp.product.name.ToUpper()
                                         </a>
                                     </div>
@@ -669,14 +667,15 @@
                             <!-- Body -->
 
 
-                            
+
                         </div>
-                    </div>
+
 
                     }
 
                 }
-        </div>
+            </div>
+            </div>
     </div>
 
 
