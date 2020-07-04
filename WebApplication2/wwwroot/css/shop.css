@@ -165,3 +165,55 @@ card-img-hover>* {
 .text-primary {
     color: #ff6f61!important;
 }
+.card-action {
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateY(.5rem);
+    transition: all .1s ease-in-out;
+    transition-property: transform,opacity;
+    padding: 9px;
+}
+.card-actions {
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1.25rem;
+}
+
+.btn-circle.btn-xs {
+    width: calc(1.40625rem + 1rem + 2px);
+}
+.btn-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    
+    border-radius: 100%;
+}
+.btn-white-primary {
+    background-color: #fff;
+    color: #111;
+}
+.btn-xs {
+    height: calc(1.40625rem + 1rem + 2px);
+    font-size: .9375rem;
+}
+.btn {
+    white-space: nowrap;
+}
+.card:hover .card-actions .card-action {
+    opacity: 1;
+    transform: translateY(0);
+}
+.btn-white-primary:hover {
+    background-color: #ff6f61;
+    border-color: #ff6f61;
+    color: #fff;
+}

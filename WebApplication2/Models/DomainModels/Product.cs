@@ -16,7 +16,7 @@ namespace WebApplication2.Models
         public string summary { get; set; }
         [DataType(DataType.MultilineText)]
         public string description { get; set; }
-        public string price { get; set; }
+        public int price { get; set; }
         public string category { get; set; }
     }
 }
