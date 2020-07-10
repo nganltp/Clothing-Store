@@ -4,7 +4,381 @@
     ViewData["Title"] = "Catalog";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
+    <div class="row justify-content-end">
 
+        @*<button class="btn" type="button" data-toggle="modal" data-target="#modalDetail">
+            <i data-feather="heart" style="width: 20px;height: 20px ;"></i>
+        </button>*@
+
+        <button class="btn" type="button" data-toggle="modal" data-target="#modalWishCart">
+            <i data-feather="heart" style="width: 30px;height: 30px ;"></i>
+        </button>
+
+        <button class="btn" type="button" data-toggle="modal" data-target="#modalShoppingCart">
+            <i data-feather="shopping-cart" style="width: 30px;height: 30px ;"></i>
+        </button>
+        <div class="col-1">
+
+        </div>
+    </div>
+
+
+<div class="modal fade " id="modalShoppingCart" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-vertical" role="document">
+
+        <!-- Full cart (add `.d-none` to disable it) -->
+        <div class="modal-content">
+
+            <!-- Close -->
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <i class="fe fe-x" aria-hidden="true"></i>
+            </button>
+
+            <!-- Header-->
+            <div class="modal-header line-height-fixed font-size-lg">
+                <strong class="mx-auto">Your Cart (@Model.cart_product.Count())</strong>
+            </div>
+
+            <!-- List group -->
+            @using (Html.BeginForm())
+            {
+
+                foreach (var cp in Model.cart_product)
+                {
+                    <div class="list-group-item">
+                        <div class="row align-items-center">
+                            <div class="col-4">
+
+                                <!-- Image -->
+                                <a >
+                                    <img class="img-fluid" src="@Model.cart_images.ElementAt(Model.cart_product.IndexOf(cp)).content" alt="...">
+                                </a>
+
+                            </div>
+                            <div class="col-8">
+
+                                <!-- Title -->
+                                <p class="font-size-sm font-weight-bold mb-6">
+                                    <a class="text-body">@cp.name</a> <br>
+                                    <span class="text-muted">$ @cp.price</span>
+                                </p>
+
+                                <!--Footer -->
+                                <div class="d-flex align-items-center">
+
+                                    <!-- Select -->
+                                    <select class="custom-select custom-select-xxs w-auto" asp-for="@Model.items[Model.cart_product.IndexOf(cp)].quantity">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                    </select>
+
+                                    <select class="custom-select custom-select-xxs w-auto" asp-for="@Model.items[Model.cart_product.IndexOf(cp)].size">
+                                        @{
+                                            foreach (ProductSize s in Model.items[Model.cart_product.IndexOf(cp)].sizes)
+                                            {
+                                                <option>@s.size</option>
+                                            }
+
+                                        }
+
+
+
+                                    </select>
+
+                                    <!-- Remove -->
+                                    <a class="font-size-xs text-gray-400 ml-auto"
+                                       asp-action="Catalog" asp-route-cart_remove="@cp.id">
+                                        <i class="fe fe-x"></i> Remove
+                                    </a>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                }
+                    @*<a class="btn btn-block btn-dark" asp-action="Checkout">Continue to Checkout</a>*@
+                    <input type="submit" class="btn btn-block btn-dark" value="Continue To Checkout"></input>
+
+            
+
+
+            }
+
+
+            <!-- Footer -->
+            @*<div class="modal-footer line-height-fixed font-size-sm bg-light mt-auto">
+            <strong>Subtotal</strong> <strong class="ml-auto">$89.00</strong>
+        </div>*@
+
+            <!-- Buttons -->
+
+
+        </div>
+
+        <!-- Empty cart (remove `.d-none` to enable it) -->
+        <div class="modal-content d-none">
+
+            <!-- Close -->
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <i class="fe fe-x" aria-hidden="true"></i>
+            </button>
+
+            <!-- Header-->
+            <div class="modal-header line-height-fixed font-size-lg">
+                <strong class="mx-auto">Your Cart (0)</strong>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body flex-grow-0 my-auto">
+
+                <!-- Heading -->
+                <h6 class="mb-7 text-center">Your cart is empty 😞</h6>
+
+                <!-- Button -->
+                <a class="btn btn-block btn-outline-dark" href="#!">
+                    Continue Shopping
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div class="modal fade " id="modalWishCart" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-vertical" role="document">
+
+        <!-- Full wish cart (add `.d-none` to disable it) -->
+        <div class="modal-content">
+
+            <!-- Close -->
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <i class="fe fe-x" aria-hidden="true"></i>
+            </button>
+
+            <!-- Header-->
+            <div class="modal-header line-height-fixed font-size-lg">
+                <strong class="mx-auto">Your WishList (@Model.wish_product.Count())</strong>
+            </div>
+
+            <!-- List group -->
+
+            <ul class="list-group list-group-lg list-group-flush">
+                @{
+                    foreach (var cp in Model.wish_product)
+                    {
+                        <li class="list-group-item">
+                            <div class="row align-items-center">
+                                <div class="col-4">
+
+                                    <!-- Image -->
+                                    <a href="./product.html">
+                                        <img class="img-fluid" src="@Model.wish_images.ElementAt(Model.wish_product.IndexOf(cp)).content" alt="...">
+                                    </a>
+
+                                </div>
+                                <div class="col-8">
+
+                                    <!-- Title -->
+                                    <p class="font-size-sm font-weight-bold mb-6">
+                                        <a class="text-body">@cp.name</a> <br>
+                                        <span class="text-muted">$ @cp.price</span>
+                                    </p>
+
+                                    <!--Footer -->
+                                    <div class="d-flex align-items-center">
+
+                                        <!-- Select -->
+                                        @*<select class="custom-select custom-select-xxs w-auto">
+                                            <option value="1">1</option>
+                                            <option value="1">2</option>
+                                            <option value="1">3</option>
+                                        </select>
+
+                                        <select class="custom-select custom-select-xxs w-auto">
+                                            <option value="1">S</option>
+                                            <option value="1">M</option>
+                                            <option value="1">L</option>
+                                            <option value="1">XL</option>
+                                            <option value="1">2XL</option>
+                                            <option value="1">One Size</option>
+                                        </select>*@
+
+                                        <!-- Remove -->
+                                        <a class="font-size-xs text-gray-400 ml-auto"
+                                           asp-action="Catalog" asp-route-wish_remove="@cp.id">
+                                            <i class="fe fe-x"></i> Remove
+                                        </a>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+
+                    }
+                }
+
+            </ul>
+
+            
+
+        </div>
+
+        <!-- Empty cart (remove `.d-none` to enable it) -->
+        <div class="modal-content d-none">
+
+            <!-- Close -->
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <i class="fe fe-x" aria-hidden="true"></i>
+            </button>
+
+            <!-- Header-->
+            <div class="modal-header line-height-fixed font-size-lg">
+                <strong class="mx-auto">Your Cart (0)</strong>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body flex-grow-0 my-auto">
+
+                <!-- Heading -->
+                <h6 class="mb-7 text-center">Your cart is empty 😞</h6>
+
+                <!-- Button -->
+                <a class="btn btn-block btn-outline-dark" href="#!">
+                    Continue Shopping
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- Search -->
+<div class="modal fixed-right fade" id="modalSearch" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-vertical" role="document">
+        <div class="modal-content">
+
+            <!-- Close -->
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <i class="fe fe-x" aria-hidden="true"></i>
+            </button>
+
+            <!-- Header-->
+            <div class="modal-header line-height-fixed font-size-lg">
+                <strong class="mx-auto">Search Products</strong>
+            </div>
+
+            <!-- Body: Form -->
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label class="sr-only" for="modalSearchCategories">Categories:</label>
+                        <select class="custom-select" id="modalSearchCategories">
+                            <option selected>All Categories</option>
+                            <option>Women</option>
+                            <option>Men</option>
+                        </select>
+                    </div>
+                    <div class="input-group input-group-merge">
+                        <input class="form-control" type="search" placeholder="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-border" type="submit">
+                                <i data-feather="search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Body: Results (add `.d-none` to disable it) -->
+            <div class="modal-body border-top font-size-sm">
+
+                <!-- Heading -->
+                <p>Search Results:</p>
+
+                <!-- Items -->
+                <div class="row align-items-center position-relative mb-5">
+                    <div class="col-4 col-md-3">
+
+                        <!-- Image -->
+                        <img class="img-fluid" src="img/product-1.jpg" alt="...">
+
+                    </div>
+                    <div class="col position-static">
+
+                        <!-- Text -->
+                        <p class="mb-0 font-weight-bold">
+                            <a class="stretched-link text-body" href="./product.html">Leather mid-heel Sandals</a> <br>
+                            <span class="text-muted">$129.00</span>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="row align-items-center position-relative mb-5">
+                    <div class="col-4 col-md-3">
+
+                        <!-- Image -->
+                        <img class="img-fluid" src="img/product-2.jpg" alt="...">
+
+                    </div>
+                    <div class="col position-static">
+                        s
+
+                        <!-- Text -->
+                        <p class="mb-0 font-weight-bold">
+                            <a class="stretched-link text-body" href="./product.html">Cotton floral print Dress</a> <br>
+                            <span class="text-muted">$40.00</span>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="row align-items-center position-relative mb-5">
+                    <div class="col-4 col-md-3">
+
+                        <!-- Image -->
+                        <img class="img-fluid" src="img/product-3.jpg" alt="...">
+
+                    </div>
+                    <div class="col position-static">
+
+                        <!-- Text -->
+                        <p class="mb-0 font-weight-bold">
+                            <a class="stretched-link text-body" href="./product.html">Leather Sneakers</a> <br>
+                            <span class="text-muted">$85.00</span>
+                        </p>
+
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <a class="btn btn-link px-0 text-reset" href="./shop.html">
+                    View All <i class="fe fe-arrow-right ml-2"></i>
+                </a>
+
+            </div>
+
+            <!-- Body: Empty (remove `.d-none` to disable it) -->
+            <div class="d-none modal-body">
+
+                <!-- Text -->
+                <p class="mb-3 font-size-sm text-center">
+                    Nothing matches your search
+                </p>
+                <p class="mb-0 font-size-sm text-center">
+                    😞
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+</div>
 
 <div class="container">
     <div class="row">
@@ -24,7 +398,7 @@
                             <div class="">
                                 <ul class="mb-0" id="productsNav">
                                     <li>
-                                        <a class="n-filter-title" >
+                                        <a class="n-filter-title">
                                             All Products
                                         </a>
                                     </li>
@@ -109,36 +483,40 @@
                                         <div class="collapse show" id="dressesCollapse" data-parent="#productsNav">
                                             <div class="py-4 pl-5">
                                                 <div class="custom-control custom-checkbox mb-3">
-                                                    <input class="custom-control-input" id="dressesOne" type="checkbox">
-                                                    <label class="custom-control-label" for="dressesOne">
-                                                        <a asp-action="Catalog" asp-route-dresses="a lined">
-                                                            A-Line Dresses
-                                                        </a>
-                                                    </label>
+                                                    @*<input class="custom-control-input" id="dressesOne" type="checkbox">*@
+                                                    @*<label class="custom-control-label" for="dressesOne">
+
+                                                        </label>*@
+                                                    <a asp-action="Catalog" asp-route-dresses="a lined">
+                                                        A-Line Dresses
+                                                    </a>
                                                 </div>
                                                 <div class="custom-control custom-checkbox mb-3">
-                                                    <input class="custom-control-input" id="dressesTwo" type="checkbox">
-                                                    <label class="custom-control-label" for="dressesTwo">
-                                                        <a asp-action="Catalog" asp-route-dresses="shift">
-                                                            Shift Dresses
-                                                        </a>
-                                                    </label>
+                                                    @*<input class="custom-control-input" id="dressesTwo" type="checkbox">*@
+                                                    @*<label class="custom-control-label" for="dressesTwo">
+
+                                                        </label>*@
+                                                    <a asp-action="Catalog" asp-route-dresses="shift">
+                                                        Shift Dresses
+                                                    </a>
                                                 </div>
                                                 <div class="custom-control custom-checkbox mb-3">
-                                                    <input class="custom-control-input" id="dressesThree" type="checkbox">
-                                                    <label class="custom-control-label" for="dressesThree">
-                                                        <a asp-action="Catalog" asp-route-dresses="wrap">
-                                                            Wrap Dresses
-                                                        </a>
-                                                    </label>
+                                                    @*<input class="custom-control-input" id="dressesThree" type="checkbox">*@
+                                                    @*<label class="custom-control-label" for="dressesThree">
+
+                                                        </label>*@
+                                                    <a asp-action="Catalog" asp-route-dresses="wrap">
+                                                        Wrap Dresses
+                                                    </a>
                                                 </div>
                                                 <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" id="dressesFour" type="checkbox">
-                                                    <label class="custom-control-label" for="dressesFour">
-                                                        <a asp-action="Catalog" asp-route-dresses="maxi">
-                                                            Maxi Dresses
-                                                        </a>
-                                                    </label>
+                                                    @*<input class="custom-control-input" id="dressesFour" type="checkbox">*@
+                                                    @*<label class="custom-control-label" for="dressesFour">
+
+                                                        </label>*@
+                                                    <a asp-action="Catalog" asp-route-dresses="maxi">
+                                                        Maxi Dresses
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -350,55 +728,61 @@
                         <!-- Collapse -->
                         <div class="collapse" id="sizeCollapse" data-toggle="simplebar" data-target="#sizeGroup">
                             <div class="form-group form-group-overlow mb-6" id="sizeGroup">
-                                
+
                                 <div class="custom-control custom-control-inline custom-control-size mb-2">
-                                    <input class="custom-control-input" id="sizeFour" type="checkbox">
-                                    <label class="custom-control-label" for="sizeFour">
-                                        <a asp-action="Catalog" asp-route-size="S">
-                                            S
-                                        </a>s
-                                    </label>
+                                    @*<input class="custom-control-input" id="sizeFour" type="checkbox">*@
+                                    @*<label class="custom-control-label" for="sizeFour">
+
+                                        </label>*@
+                                    <a asp-action="Catalog" asp-route-size="S">
+                                        S
+                                    </a>
                                 </div>
                                 <div class="custom-control custom-control-inline custom-control-size mb-2">
-                                    <input class="custom-control-input" id="sizeFive" type="checkbox" >
-                                    <label class="custom-control-label" for="sizeFive">
-                                        <a asp-action="Catalog" asp-route-size="M">
-                                            M
-                                        </a>
-                                    </label>
+                                    @*<input class="custom-control-input" id="sizeFive" type="checkbox" >*@
+                                    @*<label class="custom-control-label" for="sizeFive">
+
+                                        </label>*@
+                                    <a asp-action="Catalog" asp-route-size="M">
+                                        M
+                                    </a>
                                 </div>
                                 <div class="custom-control custom-control-inline custom-control-size mb-2">
-                                    <input class="custom-control-input" id="sizeSix" type="checkbox">
-                                    <label class="custom-control-label" for="sizeSix">
-                                        <a asp-action="Catalog" asp-route-size="L">
-                                            L
-                                        </a>
-                                    </label>
+                                    @*<input class="custom-control-input" id="sizeSix" type="checkbox">*@
+                                    @*<label class="custom-control-label" for="sizeSix">
+
+                                        </label>*@
+                                    <a asp-action="Catalog" asp-route-size="L">
+                                        L
+                                    </a>
                                 </div>
                                 <div class="custom-control custom-control-inline custom-control-size mb-2">
-                                    <input class="custom-control-input" id="sizeSeven" type="checkbox">
-                                    <label class="custom-control-label" for="sizeSeven">
-                                        <a asp-action="Catalog" asp-route-size="XL">
-                                            XL
-                                        </a>
-                                    </label>
+                                    @*<input class="custom-control-input" id="sizeSeven" type="checkbox">*@
+                                    @*<label class="custom-control-label" for="sizeSeven">
+
+                                        </label>*@
+                                    <a asp-action="Catalog" asp-route-size="XL">
+                                        XL
+                                    </a>
                                 </div>
                                 <div class="custom-control custom-control-inline custom-control-size mb-2">
-                                    <input class="custom-control-input" id="sizeEight" type="checkbox" disabled>
-                                    <label class="custom-control-label" for="sizeEight">
-                                        <a asp-action="Catalog" asp-route-size="2XL">
-                                            2Xl
-                                        </a>
-                                    </label>
+                                    @*<input class="custom-control-input" id="sizeEight" type="checkbox" disabled>*@
+                                    @*<label class="custom-control-label" for="sizeEight">
+
+                                        </label>*@
+                                    <a asp-action="Catalog" asp-route-size="2XL">
+                                        2Xl
+                                    </a>
                                 </div>
-                                
+
                                 <div class="custom-control custom-control-inline custom-control-size mb-2">
-                                    <input class="custom-control-input" id="sizeEleven" type="checkbox">
-                                    <label class="custom-control-label" for="sizeEleven">
-                                        <a asp-action="Catalog" asp-route-size="One Size">
-                                            One Size
-                                        </a>
-                                    </label>
+                                    @*<input class="custom-control-input" id="sizeEleven" type="checkbox">*@
+                                    @*<label class="custom-control-label" for="sizeEleven">
+
+                                        </label>*@
+                                    <a asp-action="Catalog" asp-route-size="One Size">
+                                        One Size
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -418,41 +802,45 @@
                             <!-- Form group-->
                             <div class="form-group form-group-overflow mb-6" id="priceGroup">
                                 <div class="custom-control custom-checkbox mb-3">
-                                    <input class="custom-control-input" id="priceOne" type="checkbox" >
-                                    <label class="custom-control-label" for="priceOne">
-                                        <a asp-action="Catalog" asp-route-price="1">
-                                            $10.00 - $49.00
-                                        </a>
-                                    </label>
+                                    @*<input class="custom-control-input" id="priceOne" type="checkbox" >*@
+                                    @*<label class="custom-control-label" for="priceOne">
+
+                                        </label>*@
+                                    <a asp-action="Catalog" asp-route-price="1">
+                                        $10.00 - $49.00
+                                    </a>
                                 </div>
                                 <div class="custom-control custom-checkbox mb-3">
-                                    <input class="custom-control-input" id="priceTwo" type="checkbox" >
-                                    <label class="custom-control-label" for="priceTwo">
-                                        <a asp-action="Catalog" asp-route-price="2">
-                                            $50.00 - $99.00
-                                        </a>
-                                    </label>
+                                    @*<input class="custom-control-input" id="priceTwo" type="checkbox" >*@
+                                    @*<label class="custom-control-label" for="priceTwo">
+
+                                        </label>*@
+                                    <a asp-action="Catalog" asp-route-price="2">
+                                        $50.00 - $99.00
+                                    </a>
                                 </div>
                                 <div class="custom-control custom-checkbox mb-3">
-                                    <input class="custom-control-input" id="priceThree" type="checkbox">
-                                    <label class="custom-control-label" for="priceThree">
-                                        <a asp-action="Catalog" asp-route-price="3">
-                                            $100.00 - $199.00
-                                        </a>
-                                    </label>
+                                    @*<input class="custom-control-input" id="priceThree" type="checkbox">*@
+                                    @*<label class="custom-control-label" for="priceThree">
+
+                                        </label>*@
+                                    <a asp-action="Catalog" asp-route-price="3">
+                                        $100.00 - $199.00
+                                    </a>
                                 </div>
                                 <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" id="priceFour" type="checkbox">
-                                    <label class="custom-control-label" for="priceFour">
-                                        <a asp-action="Catalog" asp-route-price="4">
-                                            $200.00 and Up
-                                        </a>
-                                    </label>
+                                    @*<input class="custom-control-input" id="priceFour" type="checkbox">*@
+                                    @*<label class="custom-control-label" for="priceFour">
+
+                                        </label>*@
+                                    <a asp-action="Catalog" asp-route-price="4">
+                                        $200.00 and Up
+                                    </a>
                                 </div>
                             </div>
 
                             <!-- Range -->
-                            
+
 
                         </div>
 
@@ -486,12 +874,12 @@
                                     </h2>
 
                                     <!-- Button -->
-                                    <a class="btn btn-link px-0 text-body n-view-collection" >
+                                    <a class="btn btn-link px-0 text-body n-view-collection">
                                         View Collection <i data-feather="arrow-right" style="width: 17px;height: 17px ;"></i>
                                     </a>
 
                                 </div>
-                            </div>s
+                            </div>
                             @*<div class="col-12 col-md-2 col-lg-4 col-xl-6 d-none d-md-block bg-cover" style="background-image: url(/Assets/img/panner-6.jpg);"></div>*@
                         </div>
                     </div>
@@ -507,23 +895,34 @@
                     <!-- Breadcrumb -->
                     <ol class="breadcrumb mb-3 text-gray-400">
                         <li class="breadcrumb-item">
-                            <a class="text-gray-400" >Home</a>
+                            <a class="text-gray-400" asp-action="Home">Home</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a class="text-gray-400" >Shop</a>
+                            <a class="text-gray-400">Shop</a>
                         </li>
-                        <li class="breadcrumb-item">
-                            Product
-                        </li>
+
                     </ol>
 
                 </div>
                 <div class="col-12 col-md-auto">
 
                     <!-- Select -->
-                    <select class="custom-select custom-select-xs">
-                        <option selected="">Most popular</option>
-                    </select>
+                    @using (Html.BeginForm())
+                    {
+                        <select class="custom-select custom-select-xs" asp-for="sort">
+                            <option value="asc-price">
+                                Price A-Z
+                            </option>
+                            <option value="desc-price">
+                                Price Z-A
+                            </option>
+                            <option value="popular">
+                                Name A-Z
+                            </option>
+                        </select>
+                        <input class="btn btn-block btn-dark" type="submit" value="Sorting" />
+                    }
+
 
                 </div>
             </div>
@@ -531,79 +930,134 @@
             <div class="row mb-7">
                 <div class="col-12">
                     @{
-                        if (Model.category != null && Model.category != "")
+                        foreach (var c in Model.category_filters)
                         {
+
                             <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
 
-                                <b>@Model.category</b>
-                                <a class="text-reset ml-2" role="button" asp-action="Catalog" asp-route-deletion="category">
+                                <b>@c</b>
+                                <a class="text-reset ml-2" role="button" asp-action="Catalog" asp-route-deletion="category" asp-route-subcat="@c">
                                     <i data-feather="x" style="width: 15px;height: 15px ;"></i>
                                 </a>
                             </span>
+                        }
+
+
+                    }
+
+                    @{
+                        foreach (var s in Model.size_filters)
+                        {
+
+                            <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
+
+                                <b>@s</b>
+                                <a class="text-reset ml-2" role="button" asp-action="Catalog" asp-route-deletion="size" asp-route-subsize="@s">
+                                    <i data-feather="x" style="width: 15px;height: 15px ;"></i>
+                                </a>
+                            </span>
+
                         }
                     }
                     @{
-                        if (Model.size != null && Model.size != "")
+                        foreach (var p in Model.price_filters)
                         {
-                            <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
+                            if (p == 1)
+                            {
+                                <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
+                                    $10.00 - $49.00
+                                    <a class="text-reset ml-2" role="button" asp-action="Catalog" asp-route-deletion="price" asp-route-subprice="1">
+                                        <i data-feather="x" style="width: 15px;height: 15px ;"></i>
+                                    </a>
+                                </span>
+                            }
+                            else if (p == 2)
+                            {
+                                <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
+                                    $50.00 - $99.00
+                                    <a class="text-reset ml-2" role="button" asp-action="Catalog" asp-route-deletion="price" asp-route-subprice="2">
+                                        <i data-feather="x" style="width: 15px;height: 15px ;"></i>
+                                    </a>
+                                </span>
+                            }
+                            else if (p == 3)
+                            {
+                                <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
+                                    $100.00 - $199.00
+                                    <a class="text-reset ml-2" role="button" asp-action="Catalog" asp-route-deletion="price" asp-route-subprice="3">
+                                        <i data-feather="x" style="width: 15px;height: 15px ;"></i>
+                                    </a>
+                                </span>
+                            }
+                            else if (p == 4)
+                            {
+                                <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
+                                    $200 and Up
+                                    <a class="text-reset ml-2" role="button" asp-action="Catalog" asp-route-deletion="price" asp-route-subprice="4">
+                                        <i data-feather="x" style="width: 15px;height: 15px ;"></i>
+                                    </a>
+                                </span>
+                            }
+                        }
 
-                                <b>@Model.size</b>
-                                <a class="text-reset ml-2" role="button" asp-action="Catalog" asp-route-deletion="size">
-                                    <i data-feather="x" style="width: 15px;height: 15px ;"></i>
-                                </a>
-                            </span>
-                        }
                     }
-                    @{
-                        if (Model.price == 1)
-                        {
-                            <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
-                                $10.00 - $49.00
-                                <a class="text-reset ml-2" role="button" asp-action="Catalog" asp-route-deletion="price">
-                                    <i data-feather="x" style="width: 15px;height: 15px ;"></i>
-                                </a>
-                            </span>
-                        }
-                        else if (Model.price == 2)
-                        {
-                            <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
-                                $50.00 - $99.00
-                                <a class="text-reset ml-2" role="button" asp-action="Catalog" asp-route-deletion="price">
-                                    <i data-feather="x" style="width: 15px;height: 15px ;"></i>
-                                </a>
-                            </span>
-                        }
-                        else if (Model.price == 3)
-                        {
-                            <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
-                                $100.00 - $199.00
-                                <a class="text-reset ml-2" role="button" asp-action="Catalog" asp-route-deletion="price">
-                                    <i data-feather="x" style="width: 15px;height: 15px ;"></i>
-                                </a>
-                            </span>
-                        }
-                        else if (Model.price == 4)
-                        {
-                            <span class="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
-                                $200 and Up
-                                <a class="text-reset ml-2" role="button" asp-action="Catalog" asp-route-deletion="price">
-                                    <i data-feather="x" style="width: 15px;height: 15px ;"></i>
-                                </a>
-                            </span>
-                        }
-                    }
-                    
+
 
                 </div>
             </div>
             <!--            Products-->
-            @{ foreach (var cp in Model.products)
-                {
-                    <div class="row">
+            <div class="row">
+                @{ foreach (var cp in Model.products)
+                    {
+
+
                         <div class="col-6 col-md-4">
 
 
+                            <div class="modal fade " id="modalDetail" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-vertical" role="document">
 
+                                    <!-- Full wish cart (add `.d-none` to disable it) -->
+                                                    <div class="modal-content">
+
+                                                        <!-- Close -->
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <i class="fe fe-x" aria-hidden="true"></i>
+                                                        </button>
+
+                                                        <!-- Header-->
+                                                        @*<div class="modal-header line-height-fixed font-size-lg">
+            <strong class="mx-auto">Product Detail (@Model.detail_product.Count())</strong>
+        </div>*@
+                                                        <!-- Header-->
+                                                        <div class="modal-header line-height-fixed font-size-lg">
+                                                            <strong class="mx-auto">Product Detail</strong>
+                                                        </div>
+                                                        <!-- List group -->
+                                                        
+                                                            <div class="row align-items-center">
+                                                                <div class="col-4">
+                                                                    @*<a>
+                                                                        <img class="img-fluid" 
+                                                                             src="@Model.detail_product.ElementAt(Model.detail_product.IndexOf(cp.product.)).content" alt="...">
+                                                                    </a>*@
+                                                                </div>
+                                                                <div class="col-8">
+                                                                    <p class="font-size-sm font-weight-bold mb-6">
+                                                                        <a class="text-body">-Product name:</a> <a class="text-muted">@cp.product.name</a> <br>
+                                                                        <a class="text-body">-Price:</a> <a class="text-muted">@cp.product.price</a> <br>
+                                                                        <a class="text-body">-Supplier:</a> <a class="text-muted">@cp.product.supplier</a> <br>
+                                                                        <a class="text-body">-Summary:</a> <a class="text-muted">@cp.product.summary</a> <br>
+                                                                        <a class="text-body">-Description:</a> <a class="text-muted">@cp.product.description</a> <br>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        
+
+                                                    </div>
+
+                                </div>
+                            </div>
 
                             <!-- Card -->
                             <div class="card mb-7">
@@ -619,23 +1073,29 @@
                                     <!-- Image -->
                                     <a href="#!">
                                         <img class="card-img-top card-img-front" src="@Url.Content(cp.images[0].content)" alt="...">
-                                        
+
                                     </a>
 
                                     <!-- Actions -->
                                     <div class="card-actions">
                                         <span class="card-action">
-                                            <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="modal" data-target="#modalProduct">
+                                            @*<button class="btn btn-xs btn-circle btn-white-primary" data-toggle="modal" data-target="#modalProduct">
+                                            <i data-feather="eye" style="width: 20px;height: 20px ;"></i>
+                                        </button>*@
+                                            <button class="btn btn-xs btn-circle btn-white-primary"
+                                                    data-toggle="modal" data-target="#modalDetail">
                                                 <i data-feather="eye" style="width: 20px;height: 20px ;"></i>
                                             </button>
                                         </span>
                                         <span class="card-action">
-                                            <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                                            <button onclick="location.href='@Url.Action("Catalog", "User", new { cpId=cp.product.id})';return false;"
+                                                    class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
                                                 <i data-feather="shopping-cart" style="width: 20px;height: 20px ;"></i>
                                             </button>
                                         </span>
                                         <span class="card-action">
-                                            <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                                            <button onclick="location.href='@Url.Action("Catalog", "User", new { wpId=cp.product.id})';return false;"
+                                                    class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
                                                 <i data-feather="heart" style="width: 20px;height: 20px ;"></i>
                                             </button>
                                         </span>
@@ -646,12 +1106,12 @@
 
                                     <!-- Category -->
                                     <div class="font-size-xs">
-                                        <a class="text-muted" >@cp.category</a>
+                                        <a class="text-muted">@cp.category</a>
                                     </div>
 
                                     <!-- Title -->
                                     <div class="font-weight-bold">
-                                        <a class="text-body" >
+                                        <a class="text-body">
                                             @cp.product.name.ToUpper()
                                         </a>
                                     </div>
@@ -669,14 +1129,14 @@
                             <!-- Body -->
 
 
-                            
-                        </div>
-                    </div>
 
-                    }
+                        </div>
+                  
 
                 }
-        </div>
+
+                }
+            </div>
     </div>
 
 

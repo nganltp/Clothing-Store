@@ -1,0 +1,351 @@
+﻿@model WebApplication2.Models.ViewModels.User.PersonalAddressVM
+
+@{
+    ViewData["Title"] = "PersonalAddress";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+<body>
+
+    <!--        BREADCRUMB-->
+    <nav class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+
+                    <!-- Breadcrumb -->
+                    <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
+                        <li class="breadcrumb-item">
+                            <a class="text-gray-400" asp-action="Home" asp-controller="User">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            My Address
+                        </li>
+                    </ol>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--        CONTENT-->
+    <section class="pt-7 pb-12">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+
+                    <!-- Heading -->
+                    <h3 class="mb-10">My Addresss</h3>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-3">
+
+                    <!-- Nav -->
+                    <nav class="mb-10 mb-md-0">
+                        <div class="list-group list-group-sm list-group-strong list-group-flush-x">
+                            <a class="list-group-item list-group-item-action dropright-toggle " asp-action="PersonalAccount" asp-controller="User">
+                                Personal Info
+                            </a>
+                            <a class="list-group-item list-group-item-action dropright-toggle active " asp-action="PersonalAddress" asp-controller="User">
+                                Addresses
+                            </a>
+                            <a class="list-group-item list-group-item-action dropright-toggle" asp-action="Logout" asp-controller="User">
+                                Login/Logout
+                            </a>
+                        </div>
+                    </nav>
+
+
+                </div>
+                <div class="col-12 col-md-9 col-lg-8 offset-lg-1">
+                    <div class="row">
+                        <div class="col-12">
+
+                            <!-- Button -->
+                            @*<a class="btn btn-block btn-lg btn-outline-border" href="account-address-edit.html">
+            Add Address <i class="fe fe-plus"></i>
+        </a>*@
+                            @using (Html.BeginForm())
+                            {
+                                <div class="col-12 col-md-6">
+
+                                    <!-- Company Name -->
+                                    <input hidden="hidden" value="@Model.company_name" />
+                                    <div class="form-group">
+                                        <label for="accountFirstName">
+                                            Company Name
+                                        </label>
+                                        @Html.EditorFor(m => m.company_name, new
+                                   {
+                                       htmlAttributes = new
+                                       {
+                                           @class = "form-control form-control-sm",
+                                           @id = "accountFirstName",
+                                           @type = "text",
+                                           @value = @Model.company_name,
+                                           @placeholder = @Html.DisplayNameFor(m => m.company_name)
+                                       }
+                                   })
+                                        @*<input class="form-control form-control-sm" id="accountFirstName" type="text"
+                    placeholder=@Html.DisplayNameFor(m => m.customer.fullName)>*@
+                                    </div>
+
+                                </div>
+                                <div class="col-12 col-md-6">
+
+                                    <!-- Country -->
+                                    <div class="form-group">
+                                        <label for="accountLastName">
+                                            Country *
+                                        </label>
+                                        @Html.EditorFor(m => m.country, new
+                                   {
+                                       htmlAttributes = new
+                                       {
+                                           @class = "form-control form-control-sm",
+                                           @id = "accountLastName",
+                                           @type = "text",
+                                           @value = @Model.country,
+                                           @placeholder = @Html.DisplayNameFor(m => m.country)
+                                       }
+                                   })
+
+                                        @*<input class="form-control form-control-sm" id="accountLastName" type="text"
+                    placeholder=@Html.DisplayNameFor(m=>m.last_name)>*@
+                                    </div>
+
+                                </div>
+                                <div class="col-12">
+
+                                    <!-- Address Line 1 -->
+                                    <div class="form-group">
+                                        <label for="accountEmail">
+                                            Address Line 1 *
+                                        </label>
+                                        @Html.EditorFor(m => m.address_line_1, new
+                                   {
+                                       htmlAttributes = new
+                                       {
+                                           @class = "form-control form-control-sm",
+                                           @id = "accountEmail",
+                                           @placeholder = "Your First Address: ",
+                                           @value = @Model.address_line_1,
+                                           @required = ""
+                                       }
+                                   })
+                                        @*<input class="form-control form-control-sm" id="accountEmail" type="email" placeholder="Email Address *" value="user@email.com" required="">*@
+                                    </div>
+
+                                </div>
+                                <div class="col-12">
+
+                                    <!-- Address Line 2 -->
+                                    <div class="form-group">
+                                        <label for="accountEmail">
+                                            Address Line 2
+                                        </label>
+                                        @Html.EditorFor(m => m.address_line_2, new
+                                   {
+                                       htmlAttributes = new
+                                       {
+                                           @class = "form-control form-control-sm",
+                                           @id = "accountEmail",
+                                           @type = "text",
+                                           @placeholder = "Your Second Address:     ",
+                                           @value = @Model.address_line_2,
+                                           @required = ""
+                                       }
+                                   })
+
+                                        @*<input class="form-control form-control-sm" id="accountEmail" type="email" placeholder="Email Address *" value="user@email.com" required="">*@
+                                    </div>
+
+                                </div>
+                                <div class="col-12 col-md-6">
+
+                                    <!-- Town/City -->
+                                    <div class="form-group">
+                                        <label for="accountPassword">
+                                            Town/City *
+                                        </label>
+                                        @Html.EditorFor(m => m.city, new
+                                   {
+                                       htmlAttributes = new
+                                       {
+                                           @class = "form-control form-control-sm",
+                                           @id = "accountPassword",
+                                           @type = "text",
+                                           @placeholder = "Your City/Town: ",
+                                           @value = @Model.city,
+                                           @required = ""
+                                       }
+                                   })
+
+                                        @*<input class="form-control form-control-sm" id="accountPassword" type="password" placeholder="Current Password *" required="">*@
+                                    </div>
+
+                                </div>
+                                <div class="col-12 col-md-6">
+
+                                    <!-- Mobile Phone -->
+                                    <div class="form-group">
+                                        <label for="AccountNewPassword">
+                                            Mobile Phone
+                                        </label>
+                                        @Html.EditorFor(m => m.mobile_phone, new
+                                   {
+                                       htmlAttributes = new
+                                       {
+                                           @class = "form-control form-control-sm",
+                                           @id = "AccountNewPassword",
+                                           @type = "text",
+                                           @placeholder = "Your Mobile Phone: "
+                                       }
+                                   })
+
+                                        @*<input class="form-control form-control-sm" id="AccountNewPassword" type="password" placeholder="New Password *" required="">*@
+                                    </div>
+
+                                </div>
+                                <!--Save Changes-->
+                                <div class="col-12">
+
+                                    <!-- Button -->
+                                    <input class="btn btn-dark" type="submit" formmethod="post" value="Save Changes"></input>
+                                    @*<input class="btn btn-primary col-6 " type="submit" value="" />*@
+
+                                </div>
+
+                            }
+
+                            @*<div class="col-12 col-md-6">
+
+             ZIPcode
+            <div class="form-group">
+                <label for="AccountNewPassword">
+                    ZIP/Postcode
+                </label>
+                @Html.EditorFor(m => m.ZIPcode, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control form-control-sm",
+                   @id = "AccountNewPassword",
+                   @type = "password",
+                   @placeholder = "ZIPCode: "
+               }
+           })
+
+                <input class="form-control form-control-sm" id="AccountNewPassword" type="password" placeholder="New Password *" required="">
+            </div>
+
+        </div>*@
+
+                        </div>
+                        @{
+                            if (ViewBag.InvalidModelState == true)
+                            {
+                                <div>Invalid State, please try again</div>
+                            }
+                            if (ViewBag.MissingAccount == true)
+                            {
+                                <div>There is no account</div>
+                            }
+                            if (ViewBag.MissingValues == true)
+                            {
+                                <div>Some fields are not filled, please try again</div>
+                            }
+                        }
+                        @{
+                            foreach (Address a in Model.addresses)
+                            {
+                                <div class="card card-lg bg-light mb-8">
+                                    <div class="card-body">
+
+                                        <!-- Heading -->
+                                        <h6 class="mb-6">
+                                            @a.detail.Split('_')[0]
+                                        </h6>
+
+                                        <!-- Text -->
+                                        <p class="text-muted mb-0">
+                                            @a.detail.Split('_')[1] <br>
+                                            @a.detail.Split('_')[2] <br>
+                                            @a.detail.Split('_')[3] <br>
+                                            @a.detail.Split('_')[4] <br>
+                                            @a.phone
+                                        </p>
+
+                                        <!-- Action -->
+                                        <div>
+
+                                            <!-- Button -->
+                                            <a asp-action="PersonalAddress" asp-route-isDefault="@a.id">
+                                                Set as default
+                                            </a>
+
+                                            <!-- Button -->
+                                            <a asp-action="PersonalAddress" asp-route-remove="@a.id">
+                                                Remove
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            }
+                        }
+                        <div class="col-12 col-lg-6">
+
+                            <!-- Card -->
+
+
+                        </div>
+                        <div class="col-12 col-lg-6">
+
+                            <!-- Card -->
+                            <div class="card card-lg bg-light mb-8">
+                                <div class="card-body">
+
+                                    <!-- Heading -->
+                                    <h6 class="mb-6">
+                                        Billing Address
+                                    </h6>
+
+                                    <!-- Text -->
+                                    <p class="text-muted mb-0">
+                                        Daniel Robinson <br>
+                                        3997 Raccoon Run <br>
+                                        Kingston <br>
+                                        45644 <br>
+                                        United States <br>
+                                        6146389574
+                                    </p>
+
+                                    <!-- Action -->
+                                    
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+
+
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        feather.replace()
+    </script>
+    <script src="https://kit.fontawesome.com/8039564289.js" crossorigin="anonymous"></script>
+
+</body>
