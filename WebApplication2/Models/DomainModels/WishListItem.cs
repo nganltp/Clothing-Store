@@ -13,6 +13,10 @@ namespace WebApplication2.Models
 
         public int idListWish { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}")]
+        [DataType(DataType.DateTime)]
+        public DateTime created { get; set; }
+
         public int idProduct { get; set; }
     }
 }

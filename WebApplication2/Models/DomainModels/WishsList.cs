@@ -11,6 +11,6 @@ namespace WebApplication2.Models
         [Key]
         public int id { get; set; }
 
-        public int idUse { get; set; }
+        public int idUser { get; set; }
     }
 }
